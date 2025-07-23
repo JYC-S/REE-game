@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"         .type-preview.cerium { 
+            background: linear-gradient(135deg, #01204e, #1e3c72);
+            color: white;
+        }
+
+        .type-preview.dysprosium { 
+            background: linear-gradient(135deg, #026a8d, #0fa4d6);
+            color: white;
+        }
+
+        .type-preview.praseodyme { 
+            background: linear-gradient(135deg, #f96628, #ff7b4a);
+            color: white;
+        }
+
+        .type-preview.lanthane { 
+            background: linear-gradient(135deg, #fca503, #ffb628);
+            color: white;
+        }
+
+        .type-preview.gadolinium { 
+            background: linea                'CERIUM': {
+                    titre: 'Le Cérium Sérieux 👔',
+                    description: 'Comme le Cérium, tu es organisé et suis les règles à la lettre ! Tu as d\'excellentes compétences organisationnelles et tu recycles tout. Quand tu bois, tu deviens complètement fou. Talent caché : tu es un maître du beatbox !',
+                    couleur: '#f96628'
+                },dient(135deg, #e85d04, #ff7b2a);
+            color: white;
+        }
+
+        .type-preview.neodyme { 
+            background: linear-gradient(135deg, #dc2f02, #ff4025);
+            color: white;
+        }
+
+        .type-preview.tellure { 
+            background: linear-gradient(135deg, #9d0208, #c21807);
+            color: white;
+        }ce-width, initial-scale=1.0">
+    <title>Quel type de personnalité es-tu ?</title>
+    <style>
+        /* === VARIABLES CSS === */
+        :root {
+            --couleur-primaire: #01204e;
+            --couleur-secondaire: #026a8d;
+            --couleur-accent: #71aca2;
+            --couleur-succes: #71aca2;
+            --couleur-texte: #2d3436;
+            --couleur-background: #f4dcac;
+            --couleur-carte: #ffffff;
+            --ombre-carte: 0 10px 30px rgba(102, 126, 234, 0.1);
+            --border-radius: 15px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* === STYLES DE BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--couleur-primaire), var(--couleur-secondaire));
+            min-height: 100vh;
+            color: var(--couleur-texte);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* === PAGE D'ACCUEIL === */
+        .hero {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+
+        .titre-principal {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .sous-titre {
+            font-size: 1.2em;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .carte-accueil {
+            background: var(--couleur-carte);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--ombre-carte);
+            text-align: center;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .icone-quiz {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .types-personnalite {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .type-preview {
+            padding: 15px;
+            border-radius: var(--border-radius);
+            border: 2px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .type-preview:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .type-preview.cerium { 
+            background: linear-gradient(135deg, #f96628, #fda968);
+            color: white;
+        }
+
+        .type-preview.dysprosium { 
+            background: linear-gradient(135deg, #71aca2, #038694);
+            color: white;
+        }
+
+        .type-preview.praseodyme { 
+            background: linear-gradient(135deg, #fda968, #f4dcac);
+            color: white;
+        }
+
+        .type-preview.lanthane { 
+            background: linear-gradient(135deg, #f96628, #f43319);
+            color: white;
+        }
+
+        .type-preview.gadolinium { 
+            background: linear-gradient(135deg, #8bc34a, #a4d66b);
+            color: white;
+        }
+
+        .type-preview.neodyme { 
+            background: linear-gradient(135deg, #2196f3, #4dabf5);
+            color: white;
+        }
+
+        .type-preview.tellure { 
+            background: linear-gradient(135deg, #ff5722, #ff7043);
+            color: white;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* === BOUTONS === */
+        .btn-commencer, .btn-suivant, .btn-precedent, .btn-resultat, .btn-recommencer, .btn-partager {
+            background: linear-gradient(135deg, var(--couleur-accent), var(--couleur-primaire));
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
+        }
+
+        .btn-commencer:hover, .btn-suivant:hover, .btn-precedent:hover, .btn-resultat:hover,
+        .btn-recommencer:hover, .btn-partager:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(240, 147, 251, 0.6);
+        }
+
+        .btn-precedent {
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+            margin-right: 15px;
+        }
+
+        /* === STYLE SPÉCIFIQUE POUR LE BOUTON COMMENCER === */
+        .btn-commencer {
+            background: linear-gradient(135deg, #3b82f6, #1e40af) !important;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4) !important;
+        }
+
+        .btn-commencer:hover {
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6) !important;
+        }
+
+        /* === QUIZ === */
+        .quiz-section {
+            display: none;
+        }
+
+        .quiz-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            background: rgba(255,255,255,0.3);
+            border-radius: 50px;
+            height: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            background: linear-gradient(90deg, var(--couleur-accent), #ffffff);
+            height: 100%;
+            border-radius: 50px;
+            transition: var(--transition);
+            width: 33.33%;
+        }
+
+        .progress-text {
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+
+        .question-card {
+            background: var(--couleur-carte);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--ombre-carte);
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .question-card.active {
+            display: block;
+        }
+
+        .question-titre {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--couleur-primaire);
+        }
+
+        .choix-container {
+            margin-bottom: 30px;
+        }
+
+        .choix {
+            margin-bottom: 15px;
+        }
+
+        .choix input[type="radio"] {
+            display: none;
+        }
+
+        .choix label {
+            display: block;
+            padding: 20px;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .choix label:hover {
+            background: #e3f2fd;
+            border-color: var(--couleur-primaire);
+            transform: translateX(5px);
+        }
+
+        .choix input[type="radio"]:checked + label {
+            background: linear-gradient(135deg, var(--couleur-primaire), var(--couleur-accent));
+            color: white;
+            border-color: var(--couleur-primaire);
+            transform: scale(1.02);
+        }
+
+        .navigation-buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* === RÉSULTAT === */
+        .resultat-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .carte-resultat {
+            background: var(--couleur-carte);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            max-width: 500px;
+            margin: 20px;
+            text-align: center;
+            animation: zoomIn 0.5s ease-out;
+        }
+
+        .resultat-contenu h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--couleur-primaire), var(--couleur-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .actions-resultat {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .titre-principal {
+                font-size: 2em;
+            }
+            
+            .carte-accueil, .question-card, .carte-resultat {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .types-personnalite {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .actions-resultat {
+                flex-direction: column;
+            }
+            
+            .btn-commencer, .btn-suivant, .btn-precedent, .btn-resultat,
+            .btn-recommencer, .btn-partager {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- PAGE D'ACCUEIL -->
+        <section id="accueil" class="accueil-section">
+            <header class="hero">
+                <h1 class="titre-principal">✨ Quel type de REE es-tu ? ✨</h1>
+                <p class="sous-titre">Découvre ta personnalité d'élément de terre rare en répondant à quelques questions simples !</p>
+            </header>
+            
+            <div class="carte-accueil">
+                <div class="icone-quiz">&#128142;</div>
+                <h2>Prêt(e) à découvrir ton élément intérieur ?</h2>
+                <p>Ce quiz scientifique te permettra de découvrir quelle terre rare correspond à ta personnalité parmi :</p>
+                
+                <div class="types-personnalite">
+                    <div class="type-preview cerium">
+                        <span class="emoji">🔍</span>
+                        <span>Cérium</span>
+                    </div>
+                    <div class="type-preview dysprosium">
+                        <span class="emoji">🏄‍♂️</span>
+                        <span>Dysprosium</span>
+                    </div>
+                    <div class="type-preview praseodyme">
+                        <span class="emoji">👑</span>
+                        <span>Praséodyme</span>
+                    </div>
+                    <div class="type-preview lanthane">
+                        <span class="emoji">😴</span>
+                        <span>Lanthane</span>
+                    </div>
+                    <div class="type-preview gadolinium">
+                        <span class="emoji">✨</span>
+                        <span>Gadolinium</span>
+                    </div>
+                    <div class="type-preview neodyme">
+                        <span class="emoji">&#x1F60E;</span>
+                        <span>Néodyme</span>
+                    </div>
+                    <div class="type-preview tellure">
+                        <span class="emoji">🐺</span>
+                        <span>Tellure</span>
+                    </div>
+                </div>
+                
+                <button class="btn-commencer" onclick="commencerQuiz()">Commencer le Quiz</button>
+            </div>
+            
+            <footer>
+                <p>💡 Aucune bonne ou mauvaise réponse - sois juste toi-même !</p>
+            </footer>
+        </section>
+
+        <!-- SECTION QUIZ -->
+        <section id="quiz" class="quiz-section">
+            <header class="quiz-header">
+                <h1>🧠 Quel REE es-tu ?</h1>
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <span class="progress-text">Question <span id="question-actuelle">1</span> sur <span id="total-questions">3</span></span>
+            </header>
+
+            <form id="quiz-form">
+                <!-- Question 1 -->
+                <div class="question-card active" data-question="1">
+                    <h2 class="question-titre">Here you are, one REE out of many in a e-waste. What a mess.... To escape from being killed because of your old age, you have to team up with your other REEs friend. What is your first action ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="q1c1" name="question1" value="LEADERSHIP" required>
+                            <label for="q1c1">You like to stay on top of the situation and you take the leads</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q1c2" name="question1" value="SHY_SMILE" required>
+                            <label for="q1c2">You never been good at talking in public but you keep your beautiful smile on</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q1c3" name="question1" value="TOO_SMART" required>
+                            <label for="q1c3">You have something so smart to say that nobody understood and starts to sleep</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q1c4" name="question1" value="HAPPY_TEAM" required>
+                            <label for="q1c4">You're just happy to be part of the team</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Suivant →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question-card" data-question="2">
+                    <h2 class="question-titre">Face à un défi scientifique complexe, ton approche naturelle est :</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="q2c1" name="question2" value="PRASEODYME:3" required>
+                            <label for="q2c1">Imaginer des solutions originales et créatives</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q2c2" name="question2" value="DYSPROSIUM:3" required>
+                            <label for="q2c2">Analyser méthodiquement chaque paramètre</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q2c3" name="question2" value="LANTHANE:3" required>
+                            <label for="q2c3">Rassembler l'équipe pour brainstormer</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q2c4" name="question2" value="CERIUM:3" required>
+                            <label for="q2c4">Explorer différentes pistes simultanément</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q2c5" name="question2" value="GADOLINIUM:3" required>
+                            <label for="q2c5">Chercher des applications pratiques immédiates</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q2c6" name="question2" value="NEODYME:3" required>
+                            <label for="q2c6">Foncer avec détermination vers l'objectif</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q2c7" name="question2" value="TELLURE:3" required>
+                            <label for="q2c7">Repenser complètement le problème</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Précédent
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Suivant →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question-card" data-question="3">
+                    <h2 class="question-titre">Quelle est ta philosophie de travail dans la recherche ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="q3c1" name="question3" value="DYSPROSIUM:3" required>
+                            <label for="q3c1">La précision et la rigueur avant tout</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q3c2" name="question3" value="LANTHANE:3" required>
+                            <label for="q3c2">Encourager la collaboration et le partage</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q3c3" name="question3" value="PRASEODYME:3" required>
+                            <label for="q3c3">Chercher la beauté dans la science</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q3c4" name="question3" value="CERIUM:3" required>
+                            <label for="q3c4">S'adapter constamment aux nouveaux défis</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q3c5" name="question3" value="GADOLINIUM:3" required>
+                            <label for="q3c5">Rester connecté aux besoins humains</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q3c6" name="question3" value="NEODYME:3" required>
+                            <label for="q3c6">Viser l'excellence et la performance</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="q3c7" name="question3" value="TELLURE:3" required>
+                            <label for="q3c7">Innover pour révolutionner le domaine</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Précédent
+                        </button>
+                        <button type="submit" class="btn-resultat">
+                            Voir mon résultat ! 🎉
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- RÉSULTAT -->
+        <div id="resultat" class="resultat-container">
+            <div class="carte-resultat">
+                <h2>Ton résultat :</h2>
+                <div class="resultat-contenu">
+                    <h3 id="resultat-titre"></h3>
+                    <p id="resultat-description"></p>
+                    <div class="actions-resultat">
+                        <button onclick="recommencer()" class="btn-recommencer">Refaire le Quiz</button>
+                        <button onclick="partager()" class="btn-partager">Partager mon résultat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        let questionActuelle = 1;
+        const totalQuestions = 3;
+
+        function commencerQuiz() {
+            document.getElementById('accueil').style.display = 'none';
+            document.getElementById('quiz').style.display = 'block';
+            mettreAJourProgress();
+        }
+
+        function questionSuivante() {
+            // Vérifier qu'une réponse est sélectionnée
+            const questionCourante = document.querySelector('.question-card.active');
+            const reponseSelectionnee = questionCourante.querySelector('input[type="radio"]:checked');
+            
+            if (!reponseSelectionnee) {
+                alert('Veuillez sélectionner une réponse avant de continuer.');
+                return;
+            }
+
+            // Masquer la question actuelle
+            questionCourante.classList.remove('active');
+            
+            // Afficher la question suivante
+            questionActuelle++;
+            const prochaineQuestion = document.querySelector(`[data-question="${questionActuelle}"]`);
+            if (prochaineQuestion) {
+                prochaineQuestion.classList.add('active');
+                mettreAJourProgress();
+            }
+        }
+
+        function questionPrecedente() {
+            // Masquer la question actuelle
+            const questionCourante = document.querySelector('.question-card.active');
+            questionCourante.classList.remove('active');
+            
+            // Afficher la question précédente
+            questionActuelle--;
+            const questionPrecedente = document.querySelector(`[data-question="${questionActuelle}"]`);
+            if (questionPrecedente) {
+                questionPrecedente.classList.add('active');
+                mettreAJourProgress();
+            }
+        }
+
+        function mettreAJourProgress() {
+            const progressBar = document.getElementById('progress');
+            const questionActuelleSpan = document.getElementById('question-actuelle');
+            const totalQuestionsSpan = document.getElementById('total-questions');
+            
+            const pourcentage = (questionActuelle / totalQuestions) * 100;
+            progressBar.style.width = pourcentage + '%';
+            
+            questionActuelleSpan.textContent = questionActuelle;
+            totalQuestionsSpan.textContent = totalQuestions;
+        }
+
+        // Gérer la soumission du formulaire
+        document.getElementById('quiz-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Vérifier que la dernière question a une réponse
+            const questionCourante = document.querySelector('.question-card.active');
+            const reponseSelectionnee = questionCourante.querySelector('input[type="radio"]:checked');
+            
+            if (!reponseSelectionnee) {
+                alert('Veuillez répondre à la dernière question.');
+                return;
+            }
+
+            // Calculer le résultat
+            const formData = new FormData(this);
+            const scores = {
+                'CERIUM': 0,
+                'DYSPROSIUM': 0,
+                'PRASEODYME': 0,
+                'LANTHANE': 0,
+                'GADOLINIUM': 0,
+                'NEODYME': 0,
+                'TELLURE': 0
+            };
+
+            // Compter les points
+            for (let [name, value] of formData.entries()) {
+                // Gérer les nouvelles valeurs de la première question
+                if (value === 'LEADERSHIP') {
+                    scores['CERIUM'] += 1;
+                    scores['PRASEODYME'] += 1;
+                    scores['NEODYME'] += 1;
+                } else if (value === 'SHY_SMILE') {
+                    scores['LANTHANE'] += 1;
+                    scores['TELLURE'] += 1;
+                    scores['GADOLINIUM'] += 1;
+                } else if (value === 'TOO_SMART') {
+                    scores['CERIUM'] += 1;
+                    scores['PRASEODYME'] += 1;
+                } else if (value === 'HAPPY_TEAM') {
+                    scores['DYSPROSIUM'] += 1;
+                    scores['LANTHANE'] += 1;
+                } else {
+                    // Système original pour les autres questions
+                    const [type, points] = value.split(':');
+                    if (type && points) {
+                        scores[type] += parseInt(points);
+                    }
+                }
+            }
+
+            // Trouver le type gagnant
+            let typeGagnant = 'CERIUM';
+            let scoreMax = 0;
+            for (let type in scores) {
+                if (scores[type] > scoreMax) {
+                    scoreMax = scores[type];
+                    typeGagnant = type;
+                }
+            }
+
+            afficherResultat(typeGagnant);
+        });
+
+        function afficherResultat(type) {
+            const resultats = {
+                'CERIUM': {
+                    titre: 'Le Cérium Exploratoire �',
+                    description: 'Comme le Cérium, tu es polyvalent et adaptable ! Tu excelles dans la découverte de nouvelles applications et tu sais t\'adapter à différentes situations. Ta curiosité naturelle te pousse à explorer de nouveaux territoires.',
+                    couleur: '#f96628'
+                },
+                'DYSPROSIUM': {
+                    titre: 'Le Dysprosium Dysfonctionnel �‍♂️',
+                    description: 'Tel le Dysprosium, tu mets le fun dans dysfonctionnel ! Tu es fou, impitoyable mais génial. Tu sais comment t\'amuser même quand ta maison brûle. Talent caché : tu es incroyable au crochet !',
+                    couleur: '#71aca2'
+                },
+                'PRASEODYME': {
+                    titre: 'Le Praséodyme Président 👑',
+                    description: 'Comme le Praséodyme, tu es le chef qui organise les meilleures fêtes ! Tu es photogénique, tu fais de beaux discours, mais tu es autoritaire et tu as zéro chance. Talent caché : tu connais toutes les chansons de Taylor Swift par cœur !',
+                    couleur: '#fda968'
+                },
+                'LANTHANE': {
+                    titre: 'Le Lanthane Tranquille �',
+                    description: 'Tel le Lanthane, tu es très décontracté et le plus gentil ! Tu es un peu lent mais incroyablement chill. Tu peux dormir n\'importe où et tu donnes les meilleurs câlins. Talent caché : tu peux roter l\'alphabet à l\'envers !',
+                    couleur: '#ac6b9d'
+                },
+                'GADOLINIUM': {
+                    titre: 'Le Gadolinium Glamour ✨',
+                    description: 'Comme le Gadolinium, tu as la tenue parfaite pour chaque situation ! Tu es magnifique, extraverti et tu fais de la poésie. Tu es fauché mais romantique désespéré. Talent caché : tu peux boire par le nez !',
+                    couleur: '#8bc34a'
+                },
+                'NEODYME': {
+                    titre: 'Le Néodyme Complotiste 🕶️',
+                    description: 'Tel le Néodyme, tu ne fais confiance à rien ni personne ! Tu portes des lunettes bizarres, tu argumentes toujours avec Cérium et tu penses que tout est un complot. Talent caché : tu transformes ta liste de courses en manifeste !',
+                    couleur: '#2196f3'
+                },
+                'TELLURE': {
+                    titre: 'Le Tellure Loup Solitaire �',
+                    description: 'Comme le Tellure, tu es unique et mystérieux ! Tu aimes le temps seul, tu ne parles pas beaucoup sauf pour dire des trucs complètement fous. Tu es détective privé et tu portes une veste en cuir. Phrase d\'accroche : "Tu veux voir mon hangar ?"',
+                    couleur: '#ff5722'
+                }
+            };
+
+            const resultat = resultats[type];
+            document.getElementById('resultat-titre').textContent = resultat.titre;
+            document.getElementById('resultat-description').textContent = resultat.description;
+            document.getElementById('resultat-titre').style.color = resultat.couleur;
+
+            document.getElementById('resultat').style.display = 'flex';
+            
+            // Ajouter des confettis
+            creerConfettis();
+        }
+
+        function recommencer() {
+            // Réinitialiser
+            questionActuelle = 1;
+            
+            // Réinitialiser le formulaire
+            document.getElementById('quiz-form').reset();
+            
+            // Réinitialiser les questions
+            document.querySelectorAll('.question-card').forEach((q, i) => {
+                if (i === 0) {
+                    q.classList.add('active');
+                } else {
+                    q.classList.remove('active');
+                }
+            });
+            
+            // Masquer le résultat et afficher l'accueil
+            document.getElementById('resultat').style.display = 'none';
+            document.getElementById('quiz').style.display = 'none';
+            document.getElementById('accueil').style.display = 'block';
+        }
+
+        function partager() {
+            const titre = document.getElementById('resultat-titre').textContent;
+            const texte = `Je viens de faire le quiz de personnalité et je suis ${titre} ! Et toi, quel type es-tu ?`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Mon résultat au Quiz de Personnalité',
+                    text: texte,
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(texte + ' ' + window.location.href).then(() => {
+                    alert('Résultat copié dans le presse-papiers !');
+                });
+            }
+        }
+
+        function creerConfettis() {
+            const couleurs = ['#f96628', '#71aca2', '#fda968', '#ac6b9d', '#8bc34a', '#2196f3', '#ff5722'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.cssText = `
+                        position: fixed;
+                        width: 10px;
+                        height: 10px;
+                        background: ${couleurs[Math.floor(Math.random() * couleurs.length)]};
+                        top: -10px;
+                        left: ${Math.random() * 100}%;
+                        z-index: 1001;
+                        pointer-events: none;
+                        animation: fall 3s linear forwards;
+                    `;
+                    
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        if (confetti.parentNode) {
+                            confetti.parentNode.removeChild(confetti);
+                        }
+                    }, 3000);
+                }, i * 100);
+            }
+        }
+
+        // Ajouter l'animation de chute des confettis
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
