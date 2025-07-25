@@ -1547,7 +1547,7 @@
             }
 
             // Vérifier si c'est la fin spéciale "EXIT_ENDING"
-            if (reponseSelectionnee.value === 'EXIT_ENDING') {
+            if (reponseSelectionnee.value.includes('EXIT_ENDING')) {
                 afficherFinSpeciale();
                 return;
             }
@@ -1557,7 +1557,7 @@
 
             // Vérifier les chemins spéciaux de la question 2
             if (questionActuelle === 2) {
-                if (reponseSelectionnee.value === 'SPACESHIP_PATH') {
+                if (reponseSelectionnee.value.includes('SPACESHIP_PATH')) {
                     // Aller vers le chemin spaceship
                     currentPath = 'spaceship';
                     const spaceshipQuestion = document.querySelector('[data-question="spaceship-1"]');
@@ -1567,7 +1567,7 @@
                         mettreAJourProgress();
                     }
                     return;
-                } else if (reponseSelectionnee.value === 'DEATH_NO_SCARE_PATH') {
+                } else if (reponseSelectionnee.value.includes('DEATH_NO_SCARE_PATH')) {
                     // Aller vers le chemin death no scare
                     currentPath = 'death';
                     const deathQuestion = document.querySelector('[data-question="death-1"]');
@@ -1577,7 +1577,7 @@
                         mettreAJourProgress();
                     }
                     return;
-                } else if (reponseSelectionnee.value === 'APERO_PATH') {
+                } else if (reponseSelectionnee.value.includes('APERO_PATH')) {
                     // Aller vers le chemin apero
                     currentPath = 'apero';
                     const aperoQuestion = document.querySelector('[data-question="apero-1"]');
@@ -1586,6 +1586,9 @@
                         questionActuelle = 'apero-1';
                         mettreAJourProgress();
                     }
+                    return;
+                } else if (reponseSelectionnee.value.includes('EXIT_ENDING')) {
+                    afficherFinSpeciale();
                     return;
                 }
             }
