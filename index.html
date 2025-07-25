@@ -2,45 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"         .type-preview.cerium { 
-            background: linear-gradient(135deg, #01204e, #1e3c72);
-            color: white;
-        }
-
-        .type-preview.dysprosium { 
-            background: linear-gradient(135deg, #026a8d, #0fa4d6);
-            color: white;
-        }
-
-        .type-preview.praseodyme { 
-            background: linear-gradient(135deg, #f96628, #ff7b4a);
-            color: white;
-        }
-
-        .type-preview.lanthane { 
-            background: linear-gradient(135deg, #fca503, #ffb628);
-            color: white;
-        }
-
-        .type-preview.gadolinium { 
-            background: linea                'CERIUM': {
-                    titre: 'Le Cérium Sérieux 👔',
-                    description: 'Comme le Cérium, tu es organisé et suis les règles à la lettre ! Tu as d\'excellentes compétences organisationnelles et tu recycles tout. Quand tu bois, tu deviens complètement fou. Talent caché : tu es un maître du beatbox !',
-                    couleur: '#f96628'
-                },dient(135deg, #e85d04, #ff7b2a);
-            color: white;
-        }
-
-        .type-preview.neodyme { 
-            background: linear-gradient(135deg, #dc2f02, #ff4025);
-            color: white;
-        }
-
-        .type-preview.tellure { 
-            background: linear-gradient(135deg, #9d0208, #c21807);
-            color: white;
-        }ce-width, initial-scale=1.0">
-    <title>Quel type de personnalité es-tu ?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What REE are you ?</title>
     <style>
         /* === VARIABLES CSS === */
         :root {
@@ -403,6 +366,12 @@
             }
         }
 
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
         /* === RESPONSIVE === */
         @media (max-width: 768px) {
             .titre-principal {
@@ -435,19 +404,19 @@
         <!-- PAGE D'ACCUEIL -->
         <section id="accueil" class="accueil-section">
             <header class="hero">
-                <h1 class="titre-principal">✨ Quel type de REE es-tu ? ✨</h1>
-                <p class="sous-titre">Découvre ta personnalité d'élément de terre rare en répondant à quelques questions simples !</p>
+                <h1 class="titre-principal">✨ What REE are you? ✨</h1>
+                <p class="sous-titre">Discover your rare earth element personality by answering a few simple questions!</p>
             </header>
             
             <div class="carte-accueil">
-                <div class="icone-quiz">&#128142;</div>
-                <h2>Prêt(e) à découvrir ton élément intérieur ?</h2>
-                <p>Ce quiz scientifique te permettra de découvrir quelle terre rare correspond à ta personnalité parmi :</p>
+                <div class="icone-quiz">🧪</div>
+                <h2>Ready to discover your inner element?</h2>
+                <p>This scientific quiz will help you find out which rare earth element matches your personality among:</p>
                 
                 <div class="types-personnalite">
                     <div class="type-preview cerium">
                         <span class="emoji">🔍</span>
-                        <span>Cérium</span>
+                        <span>Cerium</span>
                     </div>
                     <div class="type-preview dysprosium">
                         <span class="emoji">🏄‍♂️</span>
@@ -455,42 +424,42 @@
                     </div>
                     <div class="type-preview praseodyme">
                         <span class="emoji">👑</span>
-                        <span>Praséodyme</span>
+                        <span>Praseodymium</span>
                     </div>
                     <div class="type-preview lanthane">
                         <span class="emoji">😴</span>
-                        <span>Lanthane</span>
+                        <span>Lanthanum</span>
                     </div>
                     <div class="type-preview gadolinium">
                         <span class="emoji">✨</span>
                         <span>Gadolinium</span>
                     </div>
                     <div class="type-preview neodyme">
-                        <span class="emoji">&#x1F60E;</span>
-                        <span>Néodyme</span>
+                        <span class="emoji">😎</span>
+                        <span>Neodymium</span>
                     </div>
                     <div class="type-preview tellure">
                         <span class="emoji">🐺</span>
-                        <span>Tellure</span>
+                        <span>Tellurium</span>
                     </div>
                 </div>
                 
-                <button class="btn-commencer" onclick="commencerQuiz()">Commencer le Quiz</button>
+                <button class="btn-commencer" onclick="commencerQuiz()">Start the quiz</button>
             </div>
             
             <footer>
-                <p>💡 Aucune bonne ou mauvaise réponse - sois juste toi-même !</p>
+                <p>💡 No right or wrong answers - just be yourself!</p>
             </footer>
         </section>
 
         <!-- SECTION QUIZ -->
         <section id="quiz" class="quiz-section">
             <header class="quiz-header">
-                <h1>🧠 Quel REE es-tu ?</h1>
+                <h1>🧠 What REE are you ?</h1>
                 <div class="progress-bar">
                     <div class="progress" id="progress"></div>
                 </div>
-                <span class="progress-text">Question <span id="question-actuelle">1</span> sur <span id="total-questions">3</span></span>
+                <span class="progress-text">Question <span id="question-actuelle">1</span></span>
             </header>
 
             <form id="quiz-form">
@@ -500,132 +469,1055 @@
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="q1c1" name="question1" value="LEADERSHIP" required>
+                            <input type="radio" id="q1c1" name="question1" value="CERIUM:1,PRASEODYME:1,NEODYME:1" required>
                             <label for="q1c1">You like to stay on top of the situation and you take the leads</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="q1c2" name="question1" value="SHY_SMILE" required>
+                            <input type="radio" id="q1c2" name="question1" value="LANTHANE:1,TELLURE:1,GADOLINIUM:1" required>
                             <label for="q1c2">You never been good at talking in public but you keep your beautiful smile on</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="q1c3" name="question1" value="TOO_SMART" required>
+                            <input type="radio" id="q1c3" name="question1" value="CERIUM:1,PRASEODYME:1" required>
                             <label for="q1c3">You have something so smart to say that nobody understood and starts to sleep</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="q1c4" name="question1" value="HAPPY_TEAM" required>
+                            <input type="radio" id="q1c4" name="question1" value="DYSPROSIUM:1,LANTHANE:1" required>
                             <label for="q1c4">You're just happy to be part of the team</label>
                         </div>
                     </div>
                     
                     <div class="navigation-buttons">
                         <button type="button" class="btn-suivant" onclick="questionSuivante()">
-                            Suivant →
+                            Next →
                         </button>
                     </div>
                 </div>
 
                 <!-- Question 2 -->
                 <div class="question-card" data-question="2">
-                    <h2 class="question-titre">Face à un défi scientifique complexe, ton approche naturelle est :</h2>
+                    <h2 class="question-titre">You came up with a plan to escape from this e-waste. What is it ?</h2>
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="q2c1" name="question2" value="PRASEODYME:3" required>
-                            <label for="q2c1">Imaginer des solutions originales et créatives</label>
+                            <input type="radio" id="q2c1" name="question2" value="CERIUM:1,SPACESHIP_PATH" required>
+                            <label for="q2c1">While everybody was running around like headless chicken, you've managed to build a space ship and fly out</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="q2c2" name="question2" value="DYSPROSIUM:3" required>
-                            <label for="q2c2">Analyser méthodiquement chaque paramètre</label>
+                            <input type="radio" id="q2c2" name="question2" value="NEODYME:1,LANTHANE:1,DEATH_NO_SCARE_PATH" required>
+                            <label for="q2c2">Death doesn't scare you. You know your time hasn't come and just go with the flow</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="q2c3" name="question2" value="LANTHANE:3" required>
-                            <label for="q2c3">Rassembler l'équipe pour brainstormer</label>
+                            <input type="radio" id="q2c3" name="question2" value="DYSPROSIUM:1,GADOLINIUM:1,PRASEODYME:1,APERO_PATH" required>
+                            <label for="q2c3">This is the end. No hope but still time to have fun and do one last apero</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="q2c4" name="question2" value="CERIUM:3" required>
-                            <label for="q2c4">Explorer différentes pistes simultanément</label>
-                        </div>
-                        <div class="choix">
-                            <input type="radio" id="q2c5" name="question2" value="GADOLINIUM:3" required>
-                            <label for="q2c5">Chercher des applications pratiques immédiates</label>
-                        </div>
-                        <div class="choix">
-                            <input type="radio" id="q2c6" name="question2" value="NEODYME:3" required>
-                            <label for="q2c6">Foncer avec détermination vers l'objectif</label>
-                        </div>
-                        <div class="choix">
-                            <input type="radio" id="q2c7" name="question2" value="TELLURE:3" required>
-                            <label for="q2c7">Repenser complètement le problème</label>
+                            <input type="radio" id="q2c4" name="question2" value="TELLURE:1,EXIT_ENDING" required>
+                            <label for="q2c4">You look to your right and see the exit sign</label>
                         </div>
                     </div>
                     
                     <div class="navigation-buttons">
                         <button type="button" class="btn-precedent" onclick="questionPrecedente()">
-                            ← Précédent
+                            ← Back
                         </button>
                         <button type="button" class="btn-suivant" onclick="questionSuivante()">
-                            Suivant →
+                            Next →
                         </button>
                     </div>
                 </div>
 
-                <!-- Question 3 -->
-                <div class="question-card" data-question="3">
-                    <h2 class="question-titre">Quelle est ta philosophie de travail dans la recherche ?</h2>
+                <!-- SPACESHIP PATH QUESTIONS -->
+                <!-- Spaceship Question 1 - Destination Choice -->
+                <div class="question-card" data-question="spaceship-1">
+                    <h2 class="question-titre">Wow, your knowledge was really effective as you already have your space ship ready. Where do you want to go ?</h2>
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="q3c1" name="question3" value="DYSPROSIUM:3" required>
-                            <label for="q3c1">La précision et la rigueur avant tout</label>
+                            <input type="radio" id="qs1c1" name="spaceship1" value="PRASEODYME:1,TELLURE:1,MOON_PATH" required>
+                            <label for="qs1c1">The moon, thinking you have a better catch phrase than "That's one small step for man, one giant leap for mankind."</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="q3c2" name="question3" value="LANTHANE:3" required>
-                            <label for="q3c2">Encourager la collaboration et le partage</label>
-                        </div>
-                        <div class="choix">
-                            <input type="radio" id="q3c3" name="question3" value="PRASEODYME:3" required>
-                            <label for="q3c3">Chercher la beauté dans la science</label>
-                        </div>
-                        <div class="choix">
-                            <input type="radio" id="q3c4" name="question3" value="CERIUM:3" required>
-                            <label for="q3c4">S'adapter constamment aux nouveaux défis</label>
-                        </div>
-                        <div class="choix">
-                            <input type="radio" id="q3c5" name="question3" value="GADOLINIUM:3" required>
-                            <label for="q3c5">Rester connecté aux besoins humains</label>
-                        </div>
-                        <div class="choix">
-                            <input type="radio" id="q3c6" name="question3" value="NEODYME:3" required>
-                            <label for="q3c6">Viser l'excellence et la performance</label>
-                        </div>
-                        <div class="choix">
-                            <input type="radio" id="q3c7" name="question3" value="TELLURE:3" required>
-                            <label for="q3c7">Innover pour révolutionner le domaine</label>
+                            <input type="radio" id="qs1c2" name="spaceship1" value="GADOLINIUM:1,NEODYME:1,EUROPA_PATH" required>
+                            <label for="qs1c2">Go to Jupiter's moon Europa as we think there is life form over there</label>
                         </div>
                     </div>
                     
                     <div class="navigation-buttons">
                         <button type="button" class="btn-precedent" onclick="questionPrecedente()">
-                            ← Précédent
+                            ← Back
                         </button>
-                        <button type="submit" class="btn-resultat">
-                            Voir mon résultat ! 🎉
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- MOON PATH -->
+                <!-- Moon Landing -->
+                <div class="question-card" data-question="spaceship-moon">
+                    <h2 class="question-titre">As you're putting on your astronaut suit to go walk on the moon, you're thinking of the catch phrase you're gonna say. What do you choose?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qsm1" name="spaceship_moon" value="GADOLINIUM:1,PRASEODYME:1,LANTHANE:1,DYSPROSIUM:1" required>
+                            <label for="qsm1">"Oooooooover the moon Baby!" - All for the camera!</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsm2" name="spaceship_moon" value="CERIUM:1, LANTHANE:1" required>
+                            <label for="qsm2">You panic in front of the camera and just say "Look mum, I'm walking on the moon!" and start singing "Walking on the Moon" by The Police</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsm3" name="spaceship_moon" value="CERIUM:1,NEODYME:1,TELLURE:1" required>
+                            <label for="qsm3">You prepare a scientifically accurate statement about lunar exploration</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsm4" name="spaceship_moon" value="LANTHANE:1," required>
+                            <label for="qsm4">You forget about the catchphrase and just start doing moon bounces for fun</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- On the way back from the moon -->
+                <div class="question-card" data-question="spaceship-return">
+                    <h2 class="question-titre">On the way back to Earth, you've been hit by the tip of an asteroid. This doesn't look good... What is your reaction?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qsr1" name="spaceship_return" value="PRASEODYME:1" required>
+                            <label for="qsr1">Try to calm the crew even though you have no idea how you will survive</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsr2" name="spaceship_return" value="DYSPROSIUM:1,TELLURE:1" required>
+                            <label for="qsr2">Stay positive no matter what: "If you pay attention, all the space ship beeping together make a great melody!"</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsr3" name="spaceship_return" value="GADOLINIUM:1,LANTHANE:1" required>
+                            <label for="qsr3">F*** this, we are all gonna diiieeeee!!!!</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsr4" name="spaceship_return" value="CERIUM:1,NEODYME:1" required>
+                            <label for="qsr4">You don't support stressing situations very well and simply faint</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Landing on Earth -->
+                <div class="question-card" data-question="spaceship-landing">
+                    <h2 class="question-titre">Miraculously you manage to land on Earth! You arrive as heroes that saved all REEkind by deviating the asteroid trajectory. What is the first word you say when you land and talk to the first journalist?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qsl1" name="spaceship_landing" value="LANTHANE:1,GADOLINIUM:1,DYSPROSIUM:1" required>
+                            <label for="qsl1">"Man I'm hungry"</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsl2" name="spaceship_landing" value="CERIUM:1,LANTHANE:1" required>
+                            <label for="qsl2">"I think I need to change my pants"</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsl3" name="spaceship_landing" value="GADOLINIUM:1,TELLURE:1" required>
+                            <label for="qsl3">"It was craaaazy! I loved it!!"</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsl4" name="spaceship_landing" value="NEODYME:1,PRASEODYME:1" required>
+                            <label for="qsl4">"Yeaaaaah we saved your life, now where's my million !?!?!"</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- EUROPA PATH -->
+                <!-- Europa Discovery -->
+                <div class="question-card" data-question="spaceship-europa">
+                    <h2 class="question-titre">You've reached Europa! You discover a form of microbial life in the subsurface ocean. What's your first reaction?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qse1" name="spaceship_europa" value="CERIUM:1,TELLURE:1" required>
+                            <label for="qse1">Document everything meticulously for science</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qse2" name="spaceship_europa" value="LANTHANE:1,DYSPROSIUM:1,GADOLINIUM:1,NEODYME:1" required>
+                            <label for="qse2">Try to communicate with the microbes</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qse3" name="spaceship_europa" value="CERIUM:1,TELLURE:1" required>
+                            <label for="qse3">Collect samples for further study</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qse4" name="spaceship_europa" value="GADOLINIUM:1,DYSPROSIUM:1,PRASEODYME:1" required>
+                            <label for="qse4">Feel emotional about this historic discovery</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- DEATH NO SCARE PATH QUESTIONS -->
+                <div class="question-card" data-question="death-1">
+                    <h2 class="question-titre">Suddenly, a big magnet monster comes at you, he wants to bind with you. How do you react ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qd1c1" name="death1" value="LANTHANE:2,GADOLINIUM:2,CRYING_OR_HUGS_PATH" required>
+                            <label for="qd1c1">You see it coming closer and start crying thinking this might be your time after all</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qd1c2" name="death1" value="DYSPROSIUM:3,TELLURE:2,COOKIE_PATH" required>
+                            <label for="qd1c2">You don't care about it and focus on a big giant cookie in the middle of the trash that smells like your grandma's house. You go eat it.</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qd1c3" name="death1" value="LANTHANE:3,GADOLINIUM:3,CRYING_OR_HUGS_PATH" required>
+                            <label for="qd1c3">You love hugs so you welcome it with open arms. It's cuddle o'clock.</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CRYING OR HUGS PATH QUESTION -->
+                <div class="question-card" data-question="death-crying-hugs">
+                    <h2 class="question-titre">You forgot that you have a -10 myopia and you sat on your glasses... This is no monster but just your reflection in a mirror. What is your reflection ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qch1" name="crying_hugs" value="LANTHANE:2,CERIUM:2" required>
+                            <label for="qch1">I should eat more carrots... could be good for my eyes.</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qch2" name="crying_hugs" value="GADOLINIUM:2,TELLURE:2" required>
+                            <label for="qch2">Daam, I'm getting oooooold !</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qch3" name="crying_hugs" value="PRASEODYME:3,NEODYME:2" required>
+                            <label for="qch3">OMG, I have jucy lips ! Thank you mum's DNA</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qch4" name="crying_hugs" value="LANTHANE:3,GADOLINIUM:3,CRY_MORE_PATH" required>
+                            <label for="qch4">You cry even more</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CRY MORE PATH QUESTION -->
+                <div class="question-card" data-question="death-cry-more">
+                    <h2 class="question-titre">Time to really get out of this trash, you need to get out of here ! What transport do you take ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qcm1" name="cry_more" value="CERIUM:3,LANTHANE:2" required>
+                            <label for="qcm1">Train</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qcm2" name="cry_more" value="PRASEODYME:3,NEODYME:3" required>
+                            <label for="qcm2">Limousine</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qcm3" name="cry_more" value="DYSPROSIUM:3,GADOLINIUM:2" required>
+                            <label for="qcm3">Tandem</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qcm4" name="cry_more" value="TELLURE:3,LANTHANE:2" required>
+                            <label for="qcm4">On a T-rex back</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qcm5" name="cry_more" value="GADOLINIUM:3,CERIUM:2" required>
+                            <label for="qcm5">Teleportation shoes</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- MIRROR REFLECTION PATH QUESTION -->
+                <div class="question-card" data-question="death-mirror">
+                    <h2 class="question-titre">You're so obsessed by your own reflection....</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qmr1" name="mirror_reflection" value="LANTHANE:3,TELLURE:2,ALL_ALONE_PATH" required>
+                            <label for="qmr1">You didn't see everybody leaving</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qmr2" name="mirror_reflection" value="PRASEODYME:3,GADOLINIUM:3,BEAUTIFUL_PATH" required>
+                            <label for="qmr2">You're too damn beautiful that all your REEs friends start looking at your reflection</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qmr3" name="mirror_reflection" value="DYSPROSIUM:3,NEODYME:2,SAY_YES_PATH" required>
+                            <label for="qmr3">You propose to yourself and say YEESSS !!!</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- COOKIE PATH QUESTION (for the cookie option from death-1) -->
+                <div class="question-card" data-question="death-cookie">
+                    <h2 class="question-titre">Too bad for you, you suddenly have a cramp... I guess it's time to say goodbye... What are your last words ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qck1" name="cookie_path" value="DYSPROSIUM:3,GADOLINIUM:2" required>
+                            <label for="qck1">"I have no regrets. This cookie was REElicious"</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qck2" name="cookie_path" value="TELLURE:3,LANTHANE:2" required>
+                            <label for="qck2">"Woman, I only had 1 life.... Goodbye recycling"</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qck3" name="cookie_path" value="CERIUM:2,PRASEODYME:2" required>
+                            <label for="qck3">"Man, why did I always skip sport at school"</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qck4" name="cookie_path" value="NEODYME:3,GADOLINIUM:2" required>
+                            <label for="qck4">"F*ck I'm gonna die a virgin"</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STILL HUNGRY QUESTION (after cookie) -->
+                <div class="question-card" data-question="death-still-hungry">
+                    <h2 class="question-titre">Wait... you're still hungry! The cookie wasn't enough to satisfy your appetite. What do you do next?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qsh1" name="still_hungry" value="GADOLINIUM:3,PRASEODYME:2" required>
+                            <label for="qsh1">Look for more cookies in the trash</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsh2" name="still_hungry" value="DYSPROSIUM:3,TELLURE:2" required>
+                            <label for="qsh2">Start eating anything that looks remotely edible</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsh3" name="still_hungry" value="CERIUM:3,LANTHANE:2" required>
+                            <label for="qsh3">Try to find a proper kitchen to cook something</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsh4" name="still_hungry" value="NEODYME:3,GADOLINIUM:2" required>
+                            <label for="qsh4">Complain loudly that one cookie is never enough</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- COOKING CLASS QUESTION (final cookie path question) -->
+                <div class="question-card" data-question="death-cooking-class">
+                    <h2 class="question-titre">Suddenly, a cooking show host appears out of nowhere! They want to teach you how to make the perfect cookie. What's your reaction?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qcc1" name="cooking_class" value="PRASEODYME:3,CERIUM:2" required>
+                            <label for="qcc1">"Finally! I've been waiting for this moment my whole life!"</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qcc2" name="cooking_class" value="DYSPROSIUM:3,GADOLINIUM:3" required>
+                            <label for="qcc2">"Sure, but can we make it extra chocolatey?"</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qcc3" name="cooking_class" value="TELLURE:3,NEODYME:2" required>
+                            <label for="qcc3">"I don't need help, I'm already a cookie master"</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qcc4" name="cooking_class" value="LANTHANE:3,GADOLINIUM:2" required>
+                            <label for="qcc4">"Can we just skip to the eating part?"</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ALL ALONE PATH QUESTION -->
+                <div class="question-card" data-question="death-all-alone">
+                    <h2 class="question-titre">You finally get to be alone with your crush: YOU ! As any normal person would do, you start singing : "All by myyyyyyself" from Cerium Dion. You're savior love this song and comes rescue you from this waste. But who is this REE ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qaa1" name="all_alone" value="PRASEODYME:3,NEODYME:3" required>
+                            <label for="qaa1">pREEnce charming, he's got mad REEzz !</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qaa2" name="all_alone" value="GADOLINIUM:3,TELLURE:2" required>
+                            <label for="qaa2">It's a witch... She will rescue you but want your honey voice in return. Darn it !</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qaa3" name="all_alone" value="DYSPROSIUM:3,LANTHANE:2" required>
+                            <label for="qaa3">Y'all heard of the famous Puss in Boots ? Meow, he's fluffy</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qaa4" name="all_alone" value="LANTHANE:3,CERIUM:2" required>
+                            <label for="qaa4">It's your mum.</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- BEAUTIFUL PATH QUESTION -->
+                <div class="question-card" data-question="death-beautiful">
+                    <h2 class="question-titre">Your beautifullness has bewitch everybody. You take this opportunities to regroupe everybody and work on your final escape plan. What is this great speech ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qbp1" name="beautiful" value="PRASEODYME:3,CERIUM:3" required>
+                            <label for="qbp1">"I have a dREEam..." (you know the rest)</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qbp2" name="beautiful" value="LANTHANE:3,GADOLINIUM:2" required>
+                            <label for="qbp2">"As Grandma says: 'AI can code but can it make soup ?'"</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qbp3" name="beautiful" value="TELLURE:3,DYSPROSIUM:2" required>
+                            <label for="qbp3">"Winter is coming, move your as* !"</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qbp4" name="beautiful" value="GADOLINIUM:3,NEODYME:2" required>
+                            <label for="qbp4">"Expecto Patronum" HarREE Pot-Te-r was right, it works !</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SAY YES PATH QUESTION -->
+                <div class="question-card" data-question="death-say-yes">
+                    <h2 class="question-titre">Tellurium Swift heard your response and start singing one of his main hits "Love stoREE". Everybody start to sing, it's so beautiful. You're savior love this song and comes rescue you. But who is this REE ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qsy1" name="say_yes" value="PRASEODYME:3,NEODYME:3" required>
+                            <label for="qsy1">pREEnce charming, he's got mad REEzz !</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsy2" name="say_yes" value="GADOLINIUM:3,TELLURE:2" required>
+                            <label for="qsy2">It's a witch... She will rescue you but want your honey voice in return. Darn it !</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsy3" name="say_yes" value="DYSPROSIUM:3,LANTHANE:2" required>
+                            <label for="qsy3">Y'all heard of the famous Puss in Boots ? Meow, he's fluffy</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qsy4" name="say_yes" value="LANTHANE:3,CERIUM:2" required>
+                            <label for="qsy4">It's your mum.</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- APERO PATH QUESTIONS -->
+                <div class="question-card" data-question="apero-1">
+                    <h2 class="question-titre">As it is probably your last apero, it must be PERFECT. Everybody participates and goes around to find the best ingredients. What do you choose to take care of ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qa1c1" name="apero1" value="GADOLINIUM:3,PRASEODYME:2" required>
+                            <label for="qa1c1">Vegetable sticks (with spices and all because you're fancy and healthy)</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qa1c2" name="apero1" value="LANTHANE:3,CERIUM:2" required>
+                            <label for="qa1c2">Cheese and crackers</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qa1c3" name="apero1" value="GADOLINIUM:2,NEODYME:2" required>
+                            <label for="qa1c3">Hummus and other dips kind</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qa1c4" name="apero1" value="TELLURE:3" required>
+                            <label for="qa1c4">Beef sticks</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qa1c5" name="apero1" value="DYSPROSIUM:3" required>
+                            <label for="qa1c5">You don't really cook but take care of the drinks ;)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- APERO MUSIC QUESTION -->
+                <div class="question-card" data-question="apero-music">
+                    <h2 class="question-titre">One mandatory thing is missing .... the music !!! What do you choose to play ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qam1" name="apero_music" value="TELLURE:3,PRASEODYME:2" required>
+                            <label for="qam1">Tellurium Swift</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qam2" name="apero_music" value="DYSPROSIUM:3,NEODYME:2" required>
+                            <label for="qam2">REEminem</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qam3" name="apero_music" value="PRASEODYME:3,GADOLINIUM:2" required>
+                            <label for="qam3">REEyoncé AKA Queen REE</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qam4" name="apero_music" value="LANTHANE:3,CERIUM:2" required>
+                            <label for="qam4">The REElling stones</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- APERO GAME QUESTION -->
+                <div class="question-card" data-question="apero-game">
+                    <h2 class="question-titre">It looks like some are still a bit stress from the whole trap for ever in the waste thing.... To light up the mood you propose a to play game. Which one ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qag1" name="apero_game" value="TELLURE:3,NEODYME:2" required>
+                            <label for="qag1">Cards game like a little poker to make things more interesting</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qag2" name="apero_game" value="DYSPROSIUM:3,GADOLINIUM:2" required>
+                            <label for="qag2">A classic game of charades</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qag3" name="apero_game" value="CERIUM:3,PRASEODYME:2" required>
+                            <label for="qag3">Trivial poursuit so that you flex on your high culture general</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qag4" name="apero_game" value="PRASEODYME:3,LANTHANE:2" required>
+                            <label for="qag4">Truth or dare</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- POKER OR CHARADES OR TRIVIAL QUESTION -->
+                <div class="question-card" data-question="apero-poker-charades">
+                    <h2 class="question-titre">Someone gets too competitive and start yelling at you thinking that you're cheating. How do you react ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qpct1" name="poker_charades" value="TELLURE:3,NEODYME:2" required>
+                            <label for="qpct1">You did actually cheat but choose to play denial : "Me, cheating ? I would never dare to !"</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qpct2" name="poker_charades" value="LANTHANE:3,GADOLINIUM:2" required>
+                            <label for="qpct2">You did cheat but don't like fighting so you admit everything and offer a big hug as a peace offering</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qpct3" name="poker_charades" value="PRASEODYME:3,CERIUM:2" required>
+                            <label for="qpct3">You would never cheat, you're just too talented</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qpct4" name="poker_charades" value="DYSPROSIUM:3,LANTHANE:2" required>
+                            <label for="qpct4">You panic and start singing "under the sea" from the little mermaid</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TRUTH OR DARE QUESTION -->
+                <div class="question-card" data-question="apero-truth-dare">
+                    <h2 class="question-titre">Someone dare you to walk on fire because this is what true leader does (the office ref)... Now are you a true leader ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qtd1" name="truth_dare" value="TELLURE:3,PRASEODYME:2,YES_PATH" required>
+                            <label for="qtd1">Yes</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qtd2" name="truth_dare" value="LANTHANE:3,CERIUM:2,NO_TRUTH_PATH" required>
+                            <label for="qtd2">No</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- YES - WALKED ON FIRE QUESTION -->
+                <div class="question-card" data-question="apero-yes-fire">
+                    <h2 class="question-titre">Daaaamm you crazy ! How is your foot ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qyf1" name="yes_fire" value="TELLURE:3,DYSPROSIUM:2" required>
+                            <label for="qyf1">All good, you're super resistant to pain</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qyf2" name="yes_fire" value="LANTHANE:3,GADOLINIUM:2" required>
+                            <label for="qyf2">You're crying, begging for ice and calling for you mama... (Normal reaction, just just walked on fire)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- NO - TRUTH QUESTION -->
+                <div class="question-card" data-question="apero-no-truth">
+                    <h2 class="question-titre">You're not that crazy so you move to truth instead. What is your strongest fear ?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qnt1" name="no_truth" value="TELLURE:3,LANTHANE:2" required>
+                            <label for="qnt1">Fear of snakes</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qnt2" name="no_truth" value="DYSPROSIUM:3,GADOLINIUM:2" required>
+                            <label for="qnt2">Fear of foot</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qnt3" name="no_truth" value="CERIUM:3,PRASEODYME:2" required>
+                            <label for="qnt3">Fear of chemistry</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qnt4" name="no_truth" value="NEODYME:3,GADOLINIUM:2" required>
+                            <label for="qnt4">Fear of missing out (FOMO)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TELLURIUM SWIFT QUESTION (after yes-fire or no-truth) -->
+                <div class="question-card" data-question="apero-tellurium-swift">
+                    <h2 class="question-titre">After this chaotic scene you, the team's mood drop and allow you to hear a music across the e-waste. As you are approaching it you realize that it's a concert from no-one else but the star Tellurium Swift !!!</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qts1" name="tellurium_swift" value="PRASEODYME:3,NEODYME:2" required>
+                            <label for="qts1">You go full crazy fan mode and try to pass security to hug your idole</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qts2" name="tellurium_swift" value="DYSPROSIUM:3,GADOLINIUM:2" required>
+                            <label for="qts2">You let out your goofyness and start dancing like no-one is looking at you</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qts3" name="tellurium_swift" value="LANTHANE:3,CERIUM:2" required>
+                            <label for="qts3">You're an introvert so just moving a bit your legs is a bit effort</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qts4" name="tellurium_swift" value="TELLURE:3,NEODYME:2" required>
+                            <label for="qts4">You're not a fan and put your earpods on to listen to REEminem.</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- GETTING OUT ON MONGOLFIÈRE QUESTION (plasmid riddle) -->
+                <div class="question-card" data-question="apero-mongolfiere">
+                    <h2 class="question-titre">At the end of the concert, Tellurium Swift offer you and your teams to escape on its hot-air balloon but you must first answer a riddle.<br><br>"I'm small and circular, outside the main thread,<br>Carry resistance and tricks that microbes can spread.<br>I don't code for life, but life uses me still—<br>Horizontal transfer? I fit that bill."<br><br><strong>What am I?</strong></h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qm1" name="mongolfiere" value="CERIUM:2,DNA_WRONG" required>
+                            <label for="qm1">DNA</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qm2" name="mongolfiere" value="LANTHANE:2,WEDDING_WRONG" required>
+                            <label for="qm2">A wedding ring</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qm3" name="mongolfiere" value="GADOLINIUM:3,PLASMID_CORRECT" required>
+                            <label for="qm3">A plasmid</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qm4" name="mongolfiere" value="TELLURE:2,EUROPA_WRONG" required>
+                            <label for="qm4">Europa (Jupiter's moon)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- DNA WRONG ANSWER -->
+                <div class="question-card" data-question="apero-dna-wrong">
+                    <h2 class="question-titre">Wrong DNA code for life, Duh<br><br>Try again :<br>"I'm small and circular, outside the main thread,<br>Carry resistance and tricks that microbes can spread.<br>I don't code for life, but life uses me still—<br>Horizontal transfer? I fit that bill."<br><br><strong>What am I?</strong></h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qdn1" name="dna_wrong" value="CERIUM:2,DNA_WRONG" required>
+                            <label for="qdn1">DNA</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qdn2" name="dna_wrong" value="LANTHANE:2,WEDDING_WRONG" required>
+                            <label for="qdn2">A wedding ring</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qdn3" name="dna_wrong" value="GADOLINIUM:3,PLASMID_CORRECT" required>
+                            <label for="qdn3">A plasmid</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qdn4" name="dna_wrong" value="TELLURE:2,EUROPA_WRONG" required>
+                            <label for="qdn4">Europa (Jupiter's moon)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- WEDDING RING WRONG ANSWER -->
+                <div class="question-card" data-question="apero-wedding-wrong">
+                    <h2 class="question-titre">Could have been right...<br>Is indeed small and circular,<br>Carry resistance against people that would like to approach you in a bar,<br>Horizontal transfer during the ring exchange....<br>But please, remember that this is a biology project<br><br>Try again :<br>"I'm small and circular, outside the main thread,<br>Carry resistance and tricks that microbes can spread.<br>I don't code for life, but life uses me still—<br>Horizontal transfer? I fit that bill."<br><br><strong>What am I?</strong></h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qwr1" name="wedding_wrong" value="CERIUM:2,DNA_WRONG" required>
+                            <label for="qwr1">DNA</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qwr2" name="wedding_wrong" value="LANTHANE:2,WEDDING_WRONG" required>
+                            <label for="qwr2">A wedding ring</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qwr3" name="wedding_wrong" value="GADOLINIUM:3,PLASMID_CORRECT" required>
+                            <label for="qwr3">A plasmid</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qwr4" name="wedding_wrong" value="TELLURE:2,EUROPA_WRONG" required>
+                            <label for="qwr4">Europa (Jupiter's moon)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- EUROPA WRONG ANSWER -->
+                <div class="question-card" data-question="apero-europa-wrong">
+                    <h2 class="question-titre">Could have been right as well...<br>Indeed, it is small and circular compare to the giant Jupiter,<br>We do believe that some sort of microbes can spread and uses this moon to live on...<br>But still wrong answer.<br><br>Try again:<br>"I'm small and circular, outside the main thread,<br>Carry resistance and tricks that microbes can spread.<br>I don't code for life, but life uses me still—<br>Horizontal transfer? I fit that bill."<br><br><strong>What am I?</strong></h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qer1" name="europa_wrong" value="CERIUM:2,DNA_WRONG" required>
+                            <label for="qer1">DNA</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qer2" name="europa_wrong" value="LANTHANE:2,WEDDING_WRONG" required>
+                            <label for="qer2">A wedding ring</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qer3" name="europa_wrong" value="GADOLINIUM:3,PLASMID_CORRECT" required>
+                            <label for="qer3">A plasmid</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qer4" name="europa_wrong" value="TELLURE:2,EUROPA_WRONG" required>
+                            <label for="qer4">Europa (Jupiter's moon)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PLASMID CORRECT ANSWER -->
+                <div class="question-card" data-question="apero-plasmid-correct">
+                    <h2 class="question-titre">Yaaaay, right answer ! You did listen in your biology class !<br>You can now escape and enjoy the view :)</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qpc1" name="plasmid_correct" value="GADOLINIUM:3,PRASEODYME:2" required>
+                            <label for="qpc1">Enjoy the beautiful view from the hot-air balloon</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qpc2" name="plasmid_correct" value="DYSPROSIUM:3,TELLURE:2" required>
+                            <label for="qpc2">Take selfies with Tellurium Swift</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qpc3" name="plasmid_correct" value="CERIUM:3,LANTHANE:2" required>
+                            <label for="qpc3">Ask Tellurium Swift about the science behind plasmids</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qpc4" name="plasmid_correct" value="NEODYME:3,GADOLINIUM:2" required>
+                            <label for="qpc4">Plan your next adventure once you land</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-suivant" onclick="questionSuivante()">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- FINAL SHARED CARD -->
+                <div class="question-card" data-question="final-card">
+                    <h2 class="question-titre">As your adventure comes to an end, what lesson will you take away from this experience?</h2>
+                    
+                    <div class="choix-container">
+                        <div class="choix">
+                            <input type="radio" id="qfc1" name="final_card" value="CERIUM:1,PRASEODYME:1" required>
+                            <label for="qfc1">The importance of being prepared and following proper procedures</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qfc2" name="final_card" value="DYSPROSIUM:1,LANTHANE:1" required>
+                            <label for="qfc2">Sometimes the best adventures come from taking bold risks</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qfc3" name="final_card" value="PRASEODYME:1,TELLURE:1" required>
+                            <label for="qfc3">Every experience teaches us something valuable about ourselves</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qfc4" name="final_card" value="GADOLINIUM:1,NEODYME:1" required>
+                            <label for="qfc4">Confidence and determination can take you anywhere</label>
+                        </div>
+                        <div class="choix">
+                            <input type="radio" id="qfc5" name="final_card" value="LANTHANE:1,DYSPROSIUM:1,GADOLINIUM:1" required>
+                            <label for="qfc5">Connecting with others makes any journey more meaningful</label>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-precedent" onclick="questionPrecedente()">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn-resultat" onclick="submitQuiz()">
+                            Discover my result ! 🎉
                         </button>
                     </div>
                 </div>
             </form>
         </section>
 
+        <!-- REEVOLUTIONATE PROJECT MESSAGE -->
+        <div id="reevolutionate-message" class="resultat-container">
+            <div class="carte-resultat">
+                <h2>🎉 Congratulations! 🎉</h2>
+                <div class="resultat-contenu">
+                    <h3 style="color: #71aca2; margin-bottom: 20px;">**You've completed the quiz!**</h3>
+                    <p style="text-align: left; line-height: 1.6;">
+                        You've been officially **REEcycled**, thanks to your saviors: the brilliant students of Lausanne behind the **REEvolutionaTe** project.<br><br>
+                        They used bacteria to do all the dirty work so you could live on forever.<br>
+                        Curious how they pulled that off? Go take a peek behind the scenes: <em>[Wiki link]</em><br><br>
+                        You're welcome ;)
+                    </p>
+                    <div class="actions-resultat">
+                        <button onclick="showREEResult()" class="btn-partager">Click here to see which REE you are</button>
+                        <button onclick="recommencer()" class="btn-recommencer">Restart the quiz</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- RÉSULTAT -->
         <div id="resultat" class="resultat-container">
             <div class="carte-resultat">
-                <h2>Ton résultat :</h2>
+                <h2>Your result:</h2>
                 <div class="resultat-contenu">
                     <h3 id="resultat-titre"></h3>
                     <p id="resultat-description"></p>
                     <div class="actions-resultat">
-                        <button onclick="recommencer()" class="btn-recommencer">Refaire le Quiz</button>
-                        <button onclick="partager()" class="btn-partager">Partager mon résultat</button>
+                        <button onclick="recommencer()" class="btn-recommencer">Redo the quiz</button>
+                        <button onclick="partager()" class="btn-partager">Share my result</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SPECIAL EXIT ENDING -->
+        <div id="exit-ending" class="resultat-container">
+            <div class="carte-resultat">
+                <h2>🎉 You escaped! 🎉</h2>
+                <div class="resultat-contenu">
+                    <h3 style="color: #71aca2; margin-bottom: 20px;">**CONGRATS — you did it! You're not trash anymore... what a REElief!**</h3>
+                    <p style="text-align: left; line-height: 1.6;">
+                        You've been officially **REEcycled**, thanks to your saviors: the brilliant students of Lausanne behind the **REEvolutionaTe** project.<br><br>
+                        They used bacteria to do all the dirty work so you could live on forever.<br>
+                        Curious how they pulled that off? Go take a peek behind the scenes: <em>[Wiki link]</em><br><br>
+                        You're welcome ;)
+                    </p>
+                    <div class="actions-resultat">
+                        <button onclick="recommencer()" class="btn-recommencer">Restart the adventure</button>
+                        <button onclick="continueToPersonalityQuiz()" class="btn-partager">Click here to see which REE you are</button>
                     </div>
                 </div>
             </div>
@@ -635,7 +1527,8 @@
     <script>
         // Variables globales
         let questionActuelle = 1;
-        const totalQuestions = 3;
+        const totalQuestions = 5;
+        let currentPath = ''; // Track which path the user is on
 
         function commencerQuiz() {
             document.getElementById('accueil').style.display = 'none';
@@ -649,19 +1542,439 @@
             const reponseSelectionnee = questionCourante.querySelector('input[type="radio"]:checked');
             
             if (!reponseSelectionnee) {
-                alert('Veuillez sélectionner une réponse avant de continuer.');
+                alert('Please select an answer before continuing.');
+                return;
+            }
+
+            // Vérifier si c'est la fin spéciale "EXIT_ENDING"
+            if (reponseSelectionnee.value === 'EXIT_ENDING') {
+                afficherFinSpeciale();
                 return;
             }
 
             // Masquer la question actuelle
             questionCourante.classList.remove('active');
-            
-            // Afficher la question suivante
-            questionActuelle++;
-            const prochaineQuestion = document.querySelector(`[data-question="${questionActuelle}"]`);
-            if (prochaineQuestion) {
-                prochaineQuestion.classList.add('active');
-                mettreAJourProgress();
+
+            // Vérifier les chemins spéciaux de la question 2
+            if (questionActuelle === 2) {
+                if (reponseSelectionnee.value === 'SPACESHIP_PATH') {
+                    // Aller vers le chemin spaceship
+                    currentPath = 'spaceship';
+                    const spaceshipQuestion = document.querySelector('[data-question="spaceship-1"]');
+                    if (spaceshipQuestion) {
+                        spaceshipQuestion.classList.add('active');
+                        questionActuelle = 'spaceship-1';
+                        mettreAJourProgress();
+                    }
+                    return;
+                } else if (reponseSelectionnee.value === 'DEATH_NO_SCARE_PATH') {
+                    // Aller vers le chemin death no scare
+                    currentPath = 'death';
+                    const deathQuestion = document.querySelector('[data-question="death-1"]');
+                    if (deathQuestion) {
+                        deathQuestion.classList.add('active');
+                        questionActuelle = 'death-1';
+                        mettreAJourProgress();
+                    }
+                    return;
+                } else if (reponseSelectionnee.value === 'APERO_PATH') {
+                    // Aller vers le chemin apero
+                    currentPath = 'apero';
+                    const aperoQuestion = document.querySelector('[data-question="apero-1"]');
+                    if (aperoQuestion) {
+                        aperoQuestion.classList.add('active');
+                        questionActuelle = 'apero-1';
+                        mettreAJourProgress();
+                    }
+                    return;
+                }
+            }
+
+            // Navigation pour les chemins Spaceship
+            if (questionActuelle === 'spaceship-1') {
+                if (reponseSelectionnee.value.includes('MOON_PATH')) {
+                    currentPath = 'spaceship-moon';
+                    const moonQuestion = document.querySelector('[data-question="spaceship-moon"]');
+                    if (moonQuestion) {
+                        moonQuestion.classList.add('active');
+                        questionActuelle = 'spaceship-moon';
+                        mettreAJourProgress();
+                    }
+                    return;
+                } else if (reponseSelectionnee.value.includes('EUROPA_PATH')) {
+                    currentPath = 'spaceship-europa';
+                    const europaQuestion = document.querySelector('[data-question="spaceship-europa"]');
+                    if (europaQuestion) {
+                        europaQuestion.classList.add('active');
+                        questionActuelle = 'spaceship-europa';
+                        mettreAJourProgress();
+                    }
+                    return;
+                }
+            }
+
+            // Navigation pour les questions du chemin Moon
+            if (questionActuelle === 'spaceship-moon') {
+                const returnQuestion = document.querySelector('[data-question="spaceship-return"]');
+                if (returnQuestion) {
+                    returnQuestion.classList.add('active');
+                    questionActuelle = 'spaceship-return';
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            if (questionActuelle === 'spaceship-return') {
+                const landingQuestion = document.querySelector('[data-question="spaceship-landing"]');
+                if (landingQuestion) {
+                    landingQuestion.classList.add('active');
+                    questionActuelle = 'spaceship-landing';
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Navigation pour les chemins Death path
+            if (questionActuelle === 'death-1') {
+                if (reponseSelectionnee.value.includes('CRYING_OR_HUGS_PATH')) {
+                    currentPath = 'death-crying-hugs';
+                    const cryingHugsQuestion = document.querySelector('[data-question="death-crying-hugs"]');
+                    if (cryingHugsQuestion) {
+                        cryingHugsQuestion.classList.add('active');
+                        questionActuelle = 'death-crying-hugs';
+                        mettreAJourProgress();
+                    }
+                    return;
+                } else if (reponseSelectionnee.value.includes('COOKIE_PATH')) {
+                    currentPath = 'death-cookie';
+                    const cookieQuestion = document.querySelector('[data-question="death-cookie"]');
+                    if (cookieQuestion) {
+                        cookieQuestion.classList.add('active');
+                        questionActuelle = 'death-cookie';
+                        mettreAJourProgress();
+                    }
+                    return;
+                }
+            }
+
+            if (questionActuelle === 'death-crying-hugs') {
+                if (reponseSelectionnee.value.includes('CRY_MORE_PATH')) {
+                    currentPath = 'death-cry-more';
+                    const cryMoreQuestion = document.querySelector('[data-question="death-cry-more"]');
+                    if (cryMoreQuestion) {
+                        cryMoreQuestion.classList.add('active');
+                        questionActuelle = 'death-cry-more';
+                        mettreAJourProgress();
+                    }
+                    return;
+                } else {
+                    currentPath = 'death-mirror';
+                    const mirrorQuestion = document.querySelector('[data-question="death-mirror"]');
+                    if (mirrorQuestion) {
+                        mirrorQuestion.classList.add('active');
+                        questionActuelle = 'death-mirror';
+                        mettreAJourProgress();
+                    }
+                    return;
+                }
+            }
+
+            // Navigation for mirror reflection sub-paths
+            if (questionActuelle === 'death-mirror') {
+                if (reponseSelectionnee.value.includes('ALL_ALONE_PATH')) {
+                    currentPath = 'death-all-alone';
+                    const allAloneQuestion = document.querySelector('[data-question="death-all-alone"]');
+                    if (allAloneQuestion) {
+                        allAloneQuestion.classList.add('active');
+                        questionActuelle = 'death-all-alone';
+                        mettreAJourProgress();
+                    }
+                    return;
+                } else if (reponseSelectionnee.value.includes('BEAUTIFUL_PATH')) {
+                    currentPath = 'death-beautiful';
+                    const beautifulQuestion = document.querySelector('[data-question="death-beautiful"]');
+                    if (beautifulQuestion) {
+                        beautifulQuestion.classList.add('active');
+                        questionActuelle = 'death-beautiful';
+                        mettreAJourProgress();
+                    }
+                    return;
+                } else if (reponseSelectionnee.value.includes('SAY_YES_PATH')) {
+                    currentPath = 'death-say-yes';
+                    const sayYesQuestion = document.querySelector('[data-question="death-say-yes"]');
+                    if (sayYesQuestion) {
+                        sayYesQuestion.classList.add('active');
+                        questionActuelle = 'death-say-yes';
+                        mettreAJourProgress();
+                    }
+                    return;
+                }
+            }
+
+            // Navigation for cookie path continuation
+            if (questionActuelle === 'death-cookie') {
+                const stillHungryQuestion = document.querySelector('[data-question="death-still-hungry"]');
+                if (stillHungryQuestion) {
+                    stillHungryQuestion.classList.add('active');
+                    questionActuelle = 'death-still-hungry';
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            if (questionActuelle === 'death-still-hungry') {
+                const cookingClassQuestion = document.querySelector('[data-question="death-cooking-class"]');
+                if (cookingClassQuestion) {
+                    cookingClassQuestion.classList.add('active');
+                    questionActuelle = 'death-cooking-class';
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Navigation for apero path
+            if (questionActuelle === 'apero-1') {
+                const musicQuestion = document.querySelector('[data-question="apero-music"]');
+                if (musicQuestion) {
+                    musicQuestion.classList.add('active');
+                    questionActuelle = 'apero-music';
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            if (questionActuelle === 'apero-music') {
+                const gameQuestion = document.querySelector('[data-question="apero-game"]');
+                if (gameQuestion) {
+                    gameQuestion.classList.add('active');
+                    questionActuelle = 'apero-game';
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            if (questionActuelle === 'apero-game') {
+                if (reponseSelectionnee.value.includes('PRASEODYME:3,LANTHANE:2')) {
+                    // Truth or dare was selected
+                    const truthDareQuestion = document.querySelector('[data-question="apero-truth-dare"]');
+                    if (truthDareQuestion) {
+                        truthDareQuestion.classList.add('active');
+                        questionActuelle = 'apero-truth-dare';
+                        mettreAJourProgress();
+                    }
+                } else {
+                    // Any other game (poker, charades, trivial) was selected
+                    const pokerCharadesQuestion = document.querySelector('[data-question="apero-poker-charades"]');
+                    if (pokerCharadesQuestion) {
+                        pokerCharadesQuestion.classList.add('active');
+                        questionActuelle = 'apero-poker-charades';
+                        mettreAJourProgress();
+                    }
+                }
+                return;
+            }
+
+            // Navigation for truth or dare sub-paths
+            if (questionActuelle === 'apero-truth-dare') {
+                if (reponseSelectionnee.value.includes('YES_PATH')) {
+                    const yesFireQuestion = document.querySelector('[data-question="apero-yes-fire"]');
+                    if (yesFireQuestion) {
+                        yesFireQuestion.classList.add('active');
+                        questionActuelle = 'apero-yes-fire';
+                        mettreAJourProgress();
+                    }
+                } else if (reponseSelectionnee.value.includes('NO_TRUTH_PATH')) {
+                    const noTruthQuestion = document.querySelector('[data-question="apero-no-truth"]');
+                    if (noTruthQuestion) {
+                        noTruthQuestion.classList.add('active');
+                        questionActuelle = 'apero-no-truth';
+                        mettreAJourProgress();
+                    }
+                }
+                return;
+            }
+
+            // Navigation from apero-poker-charades, apero-yes-fire, and apero-no-truth to tellurium-swift
+            if (questionActuelle === 'apero-poker-charades' || questionActuelle === 'apero-yes-fire' || questionActuelle === 'apero-no-truth') {
+                const telluriumSwiftQuestion = document.querySelector('[data-question="apero-tellurium-swift"]');
+                if (telluriumSwiftQuestion) {
+                    telluriumSwiftQuestion.classList.add('active');
+                    questionActuelle = 'apero-tellurium-swift';
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Navigation from tellurium-swift to mongolfiere
+            if (questionActuelle === 'apero-tellurium-swift') {
+                const mongolfiereQuestion = document.querySelector('[data-question="apero-mongolfiere"]');
+                if (mongolfiereQuestion) {
+                    mongolfiereQuestion.classList.add('active');
+                    questionActuelle = 'apero-mongolfiere';
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Navigation from mongolfiere riddle based on answer
+            if (questionActuelle === 'apero-mongolfiere') {
+                if (reponseSelectionnee.value.includes('DNA_WRONG')) {
+                    const dnaWrongQuestion = document.querySelector('[data-question="apero-dna-wrong"]');
+                    if (dnaWrongQuestion) {
+                        dnaWrongQuestion.classList.add('active');
+                        questionActuelle = 'apero-dna-wrong';
+                        mettreAJourProgress();
+                    }
+                } else if (reponseSelectionnee.value.includes('WEDDING_WRONG')) {
+                    const weddingWrongQuestion = document.querySelector('[data-question="apero-wedding-wrong"]');
+                    if (weddingWrongQuestion) {
+                        weddingWrongQuestion.classList.add('active');
+                        questionActuelle = 'apero-wedding-wrong';
+                        mettreAJourProgress();
+                    }
+                } else if (reponseSelectionnee.value.includes('EUROPA_WRONG')) {
+                    const europaWrongQuestion = document.querySelector('[data-question="apero-europa-wrong"]');
+                    if (europaWrongQuestion) {
+                        europaWrongQuestion.classList.add('active');
+                        questionActuelle = 'apero-europa-wrong';
+                        mettreAJourProgress();
+                    }
+                } else if (reponseSelectionnee.value.includes('PLASMID_CORRECT')) {
+                    const plasmidCorrectQuestion = document.querySelector('[data-question="apero-plasmid-correct"]');
+                    if (plasmidCorrectQuestion) {
+                        plasmidCorrectQuestion.classList.add('active');
+                        questionActuelle = 'apero-plasmid-correct';
+                        mettreAJourProgress();
+                    }
+                }
+                return;
+            }
+
+            // Navigation from wrong answer questions - they all route based on the new answer
+            if (questionActuelle === 'apero-dna-wrong') {
+                if (reponseSelectionnee.value.includes('DNA_WRONG')) {
+                    // Stay on same question - DNA wrong again
+                    const dnaWrongQuestion = document.querySelector('[data-question="apero-dna-wrong"]');
+                    if (dnaWrongQuestion) {
+                        dnaWrongQuestion.classList.add('active');
+                        questionActuelle = 'apero-dna-wrong';
+                        mettreAJourProgress();
+                    }
+                } else if (reponseSelectionnee.value.includes('WEDDING_WRONG')) {
+                    const weddingWrongQuestion = document.querySelector('[data-question="apero-wedding-wrong"]');
+                    if (weddingWrongQuestion) {
+                        weddingWrongQuestion.classList.add('active');
+                        questionActuelle = 'apero-wedding-wrong';
+                        mettreAJourProgress();
+                    }
+                } else if (reponseSelectionnee.value.includes('EUROPA_WRONG')) {
+                    const europaWrongQuestion = document.querySelector('[data-question="apero-europa-wrong"]');
+                    if (europaWrongQuestion) {
+                        europaWrongQuestion.classList.add('active');
+                        questionActuelle = 'apero-europa-wrong';
+                        mettreAJourProgress();
+                    }
+                } else if (reponseSelectionnee.value.includes('PLASMID_CORRECT')) {
+                    const plasmidCorrectQuestion = document.querySelector('[data-question="apero-plasmid-correct"]');
+                    if (plasmidCorrectQuestion) {
+                        plasmidCorrectQuestion.classList.add('active');
+                        questionActuelle = 'apero-plasmid-correct';
+                        mettreAJourProgress();
+                    }
+                }
+                return;
+            }
+
+            if (questionActuelle === 'apero-wedding-wrong') {
+                if (reponseSelectionnee.value.includes('DNA_WRONG')) {
+                    const dnaWrongQuestion = document.querySelector('[data-question="apero-dna-wrong"]');
+                    if (dnaWrongQuestion) {
+                        dnaWrongQuestion.classList.add('active');
+                        questionActuelle = 'apero-dna-wrong';
+                        mettreAJourProgress();
+                    }
+                } else if (reponseSelectionnee.value.includes('WEDDING_WRONG')) {
+                    // Stay on same question - wedding ring wrong again
+                    const weddingWrongQuestion = document.querySelector('[data-question="apero-wedding-wrong"]');
+                    if (weddingWrongQuestion) {
+                        weddingWrongQuestion.classList.add('active');
+                        questionActuelle = 'apero-wedding-wrong';
+                        mettreAJourProgress();
+                    }
+                } else if (reponseSelectionnee.value.includes('EUROPA_WRONG')) {
+                    const europaWrongQuestion = document.querySelector('[data-question="apero-europa-wrong"]');
+                    if (europaWrongQuestion) {
+                        europaWrongQuestion.classList.add('active');
+                        questionActuelle = 'apero-europa-wrong';
+                        mettreAJourProgress();
+                    }
+                } else if (reponseSelectionnee.value.includes('PLASMID_CORRECT')) {
+                    const plasmidCorrectQuestion = document.querySelector('[data-question="apero-plasmid-correct"]');
+                    if (plasmidCorrectQuestion) {
+                        plasmidCorrectQuestion.classList.add('active');
+                        questionActuelle = 'apero-plasmid-correct';
+                        mettreAJourProgress();
+                    }
+                }
+                return;
+            }
+
+            if (questionActuelle === 'apero-europa-wrong') {
+                if (reponseSelectionnee.value.includes('DNA_WRONG')) {
+                    const dnaWrongQuestion = document.querySelector('[data-question="apero-dna-wrong"]');
+                    if (dnaWrongQuestion) {
+                        dnaWrongQuestion.classList.add('active');
+                        questionActuelle = 'apero-dna-wrong';
+                        mettreAJourProgress();
+                    }
+                } else if (reponseSelectionnee.value.includes('WEDDING_WRONG')) {
+                    const weddingWrongQuestion = document.querySelector('[data-question="apero-wedding-wrong"]');
+                    if (weddingWrongQuestion) {
+                        weddingWrongQuestion.classList.add('active');
+                        questionActuelle = 'apero-wedding-wrong';
+                        mettreAJourProgress();
+                    }
+                } else if (reponseSelectionnee.value.includes('EUROPA_WRONG')) {
+                    // Stay on same question - Europa wrong again
+                    const europaWrongQuestion = document.querySelector('[data-question="apero-europa-wrong"]');
+                    if (europaWrongQuestion) {
+                        europaWrongQuestion.classList.add('active');
+                        questionActuelle = 'apero-europa-wrong';
+                        mettreAJourProgress();
+                    }
+                } else if (reponseSelectionnee.value.includes('PLASMID_CORRECT')) {
+                    const plasmidCorrectQuestion = document.querySelector('[data-question="apero-plasmid-correct"]');
+                    if (plasmidCorrectQuestion) {
+                        plasmidCorrectQuestion.classList.add('active');
+                        questionActuelle = 'apero-plasmid-correct';
+                        mettreAJourProgress();
+                    }
+                }
+                return;
+            }
+
+            // Navigation vers la carte finale pour tous les chemins
+            if (questionActuelle === 'spaceship-landing' || questionActuelle === 'spaceship-europa' || 
+                questionActuelle === 'death-cooking-class' || questionActuelle === 'death-cry-more' || 
+                questionActuelle === 'death-all-alone' || questionActuelle === 'death-beautiful' || 
+                questionActuelle === 'death-say-yes' || questionActuelle === 'apero-plasmid-correct') {
+                const finalCard = document.querySelector('[data-question="final-card"]');
+                if (finalCard) {
+                    finalCard.classList.add('active');
+                    questionActuelle = 'final-card';
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Navigation normale pour les autres questions
+            if (typeof questionActuelle === 'number') {
+                questionActuelle++;
+                const prochaineQuestion = document.querySelector(`[data-question="${questionActuelle}"]`);
+                if (prochaineQuestion) {
+                    prochaineQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
             }
         }
 
@@ -670,39 +1983,336 @@
             const questionCourante = document.querySelector('.question-card.active');
             questionCourante.classList.remove('active');
             
-            // Afficher la question précédente
-            questionActuelle--;
-            const questionPrecedente = document.querySelector(`[data-question="${questionActuelle}"]`);
-            if (questionPrecedente) {
-                questionPrecedente.classList.add('active');
-                mettreAJourProgress();
+            // Gérer le retour depuis les chemins spéciaux vers la question 2
+            if (questionActuelle === 'spaceship-1' || questionActuelle === 'death-1' || questionActuelle === 'apero-1') {
+                questionActuelle = 2;
+                const question2 = document.querySelector('[data-question="2"]');
+                if (question2) {
+                    question2.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Retour depuis les sous-questions du chemin Spaceship
+            if (questionActuelle === 'spaceship-moon' || questionActuelle === 'spaceship-europa') {
+                questionActuelle = 'spaceship-1';
+                const spaceshipQuestion = document.querySelector('[data-question="spaceship-1"]');
+                if (spaceshipQuestion) {
+                    spaceshipQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            if (questionActuelle === 'spaceship-return') {
+                questionActuelle = 'spaceship-moon';
+                const moonQuestion = document.querySelector('[data-question="spaceship-moon"]');
+                if (moonQuestion) {
+                    moonQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            if (questionActuelle === 'spaceship-landing') {
+                questionActuelle = 'spaceship-return';
+                const returnQuestion = document.querySelector('[data-question="spaceship-return"]');
+                if (returnQuestion) {
+                    returnQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Retour depuis les sous-questions du chemin Death
+            if (questionActuelle === 'death-crying-hugs' || questionActuelle === 'death-cookie') {
+                questionActuelle = 'death-1';
+                const deathQuestion = document.querySelector('[data-question="death-1"]');
+                if (deathQuestion) {
+                    deathQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Retour pour les nouvelles questions du chemin cookie
+            if (questionActuelle === 'death-still-hungry') {
+                questionActuelle = 'death-cookie';
+                const cookieQuestion = document.querySelector('[data-question="death-cookie"]');
+                if (cookieQuestion) {
+                    cookieQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            if (questionActuelle === 'death-cooking-class') {
+                questionActuelle = 'death-still-hungry';
+                const stillHungryQuestion = document.querySelector('[data-question="death-still-hungry"]');
+                if (stillHungryQuestion) {
+                    stillHungryQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            if (questionActuelle === 'death-cry-more' || questionActuelle === 'death-mirror') {
+                questionActuelle = 'death-crying-hugs';
+                const cryingHugsQuestion = document.querySelector('[data-question="death-crying-hugs"]');
+                if (cryingHugsQuestion) {
+                    cryingHugsQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Retour depuis les sous-questions du chemin Mirror reflection
+            if (questionActuelle === 'death-all-alone' || questionActuelle === 'death-beautiful' || questionActuelle === 'death-say-yes') {
+                questionActuelle = 'death-mirror';
+                const mirrorQuestion = document.querySelector('[data-question="death-mirror"]');
+                if (mirrorQuestion) {
+                    mirrorQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Backward navigation for apero path
+            if (questionActuelle === 'apero-music') {
+                questionActuelle = 'apero-1';
+                const aperoQuestion = document.querySelector('[data-question="apero-1"]');
+                if (aperoQuestion) {
+                    aperoQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            if (questionActuelle === 'apero-game') {
+                questionActuelle = 'apero-music';
+                const musicQuestion = document.querySelector('[data-question="apero-music"]');
+                if (musicQuestion) {
+                    musicQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Backward navigation for new apero sub-questions
+            if (questionActuelle === 'apero-poker-charades' || questionActuelle === 'apero-truth-dare') {
+                questionActuelle = 'apero-game';
+                const gameQuestion = document.querySelector('[data-question="apero-game"]');
+                if (gameQuestion) {
+                    gameQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            if (questionActuelle === 'apero-yes-fire' || questionActuelle === 'apero-no-truth') {
+                questionActuelle = 'apero-truth-dare';
+                const truthDareQuestion = document.querySelector('[data-question="apero-truth-dare"]');
+                if (truthDareQuestion) {
+                    truthDareQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Backward navigation for new tellurium swift question
+            if (questionActuelle === 'apero-tellurium-swift') {
+                // This can come from multiple sources, need to check the last question
+                // For now, default to apero-poker-charades (could be improved with tracking)
+                questionActuelle = 'apero-poker-charades';
+                const pokerCharadesQuestion = document.querySelector('[data-question="apero-poker-charades"]');
+                if (pokerCharadesQuestion) {
+                    pokerCharadesQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Backward navigation for mongolfiere riddle
+            if (questionActuelle === 'apero-mongolfiere') {
+                questionActuelle = 'apero-tellurium-swift';
+                const telluriumSwiftQuestion = document.querySelector('[data-question="apero-tellurium-swift"]');
+                if (telluriumSwiftQuestion) {
+                    telluriumSwiftQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Backward navigation for wrong answer questions - they all go back to mongolfiere
+            if (questionActuelle === 'apero-dna-wrong' || questionActuelle === 'apero-wedding-wrong' || questionActuelle === 'apero-europa-wrong') {
+                questionActuelle = 'apero-mongolfiere';
+                const mongolfiereQuestion = document.querySelector('[data-question="apero-mongolfiere"]');
+                if (mongolfiereQuestion) {
+                    mongolfiereQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Backward navigation for correct plasmid answer
+            if (questionActuelle === 'apero-plasmid-correct') {
+                questionActuelle = 'apero-mongolfiere';
+                const mongolfiereQuestion = document.querySelector('[data-question="apero-mongolfiere"]');
+                if (mongolfiereQuestion) {
+                    mongolfiereQuestion.classList.add('active');
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Retour depuis la carte finale vers les dernières questions de chaque chemin
+            if (questionActuelle === 'final-card') {
+                // Use the tracked path to go back to the correct question
+                if (currentPath === 'spaceship-moon') {
+                    questionActuelle = 'spaceship-landing';
+                    const landingQuestion = document.querySelector('[data-question="spaceship-landing"]');
+                    if (landingQuestion) {
+                        landingQuestion.classList.add('active');
+                        mettreAJourProgress();
+                    }
+                } else if (currentPath === 'spaceship-europa') {
+                    questionActuelle = 'spaceship-europa';
+                    const europaQuestion = document.querySelector('[data-question="spaceship-europa"]');
+                    if (europaQuestion) {
+                        europaQuestion.classList.add('active');
+                        mettreAJourProgress();
+                    }
+                } else if (currentPath === 'death-crying-hugs') {
+                    questionActuelle = 'death-crying-hugs';
+                    const cryingHugsQuestion = document.querySelector('[data-question="death-crying-hugs"]');
+                    if (cryingHugsQuestion) {
+                        cryingHugsQuestion.classList.add('active');
+                        mettreAJourProgress();
+                    }
+                } else if (currentPath === 'death-cookie') {
+                    questionActuelle = 'death-cooking-class';
+                    const cookingClassQuestion = document.querySelector('[data-question="death-cooking-class"]');
+                    if (cookingClassQuestion) {
+                        cookingClassQuestion.classList.add('active');
+                        mettreAJourProgress();
+                    }
+                } else if (currentPath === 'death-cry-more') {
+                    questionActuelle = 'death-cry-more';
+                    const cryMoreQuestion = document.querySelector('[data-question="death-cry-more"]');
+                    if (cryMoreQuestion) {
+                        cryMoreQuestion.classList.add('active');
+                        mettreAJourProgress();
+                    }
+                } else if (currentPath === 'death-all-alone') {
+                    questionActuelle = 'death-all-alone';
+                    const allAloneQuestion = document.querySelector('[data-question="death-all-alone"]');
+                    if (allAloneQuestion) {
+                        allAloneQuestion.classList.add('active');
+                        mettreAJourProgress();
+                    }
+                } else if (currentPath === 'death-beautiful') {
+                    questionActuelle = 'death-beautiful';
+                    const beautifulQuestion = document.querySelector('[data-question="death-beautiful"]');
+                    if (beautifulQuestion) {
+                        beautifulQuestion.classList.add('active');
+                        mettreAJourProgress();
+                    }
+                } else if (currentPath === 'death-say-yes') {
+                    questionActuelle = 'death-say-yes';
+                    const sayYesQuestion = document.querySelector('[data-question="death-say-yes"]');
+                    if (sayYesQuestion) {
+                        sayYesQuestion.classList.add('active');
+                        mettreAJourProgress();
+                    }
+                } else if (currentPath === 'apero') {
+                    // For apero path, go back to the plasmid correct question since that's the only path to final
+                    questionActuelle = 'apero-plasmid-correct';
+                    const plasmidCorrectQuestion = document.querySelector('[data-question="apero-plasmid-correct"]');
+                    if (plasmidCorrectQuestion) {
+                        plasmidCorrectQuestion.classList.add('active');
+                        mettreAJourProgress();
+                    }
+                }
+                return;
+            }
+            
+            // Navigation normale pour les questions numérotées
+            if (typeof questionActuelle === 'number') {
+                questionActuelle--;
+                const questionPrecedente = document.querySelector(`[data-question="${questionActuelle}"]`);
+                if (questionPrecedente) {
+                    questionPrecedente.classList.add('active');
+                    mettreAJourProgress();
+                }
             }
         }
 
         function mettreAJourProgress() {
             const progressBar = document.getElementById('progress');
             const questionActuelleSpan = document.getElementById('question-actuelle');
-            const totalQuestionsSpan = document.getElementById('total-questions');
             
-            const pourcentage = (questionActuelle / totalQuestions) * 100;
+            let pourcentage, questionNum;
+            
+            // Gérer les chemins spéciaux avec progression plus réaliste
+            if (questionActuelle === 'spaceship-1' || questionActuelle === 'death-1' || questionActuelle === 'apero-1') {
+                questionNum = 3;
+                pourcentage = 50;
+            } else if (questionActuelle === 'spaceship-moon' || questionActuelle === 'spaceship-europa' || 
+                       questionActuelle === 'death-crying-hugs' || questionActuelle === 'death-cookie' ||
+                       questionActuelle === 'apero-music') {
+                questionNum = 4;
+                pourcentage = 66;
+            } else if (questionActuelle === 'spaceship-return' || 
+                       questionActuelle === 'death-cry-more' || questionActuelle === 'death-mirror' ||
+                       questionActuelle === 'death-still-hungry' || questionActuelle === 'apero-game') {
+                questionNum = 5;
+                pourcentage = 83;
+            } else if (questionActuelle === 'spaceship-landing' || questionActuelle === 'spaceship-europa' ||
+                       questionActuelle === 'death-all-alone' || questionActuelle === 'death-beautiful' ||
+                       questionActuelle === 'death-say-yes' || questionActuelle === 'death-cooking-class' ||
+                       questionActuelle === 'apero-poker-charades' || questionActuelle === 'apero-truth-dare') {
+                questionNum = 6;
+                pourcentage = 100;
+            } else if (questionActuelle === 'apero-yes-fire' || questionActuelle === 'apero-no-truth') {
+                questionNum = 7;
+                pourcentage = 100;
+            } else if (questionActuelle === 'apero-tellurium-swift') {
+                questionNum = 8;
+                pourcentage = 100;
+            } else if (questionActuelle === 'apero-mongolfiere' || questionActuelle === 'apero-dna-wrong' || 
+                       questionActuelle === 'apero-wedding-wrong' || questionActuelle === 'apero-europa-wrong') {
+                questionNum = 9;
+                pourcentage = 100;
+            } else if (questionActuelle === 'apero-plasmid-correct' || questionActuelle === 'final-card') {
+                questionNum = 10;
+                pourcentage = 100;
+            } else {
+                // Pour les questions numérotées (1, 2)
+                questionNum = questionActuelle;
+                pourcentage = (questionActuelle / 6) * 100;
+            }
+            
             progressBar.style.width = pourcentage + '%';
-            
-            questionActuelleSpan.textContent = questionActuelle;
-            totalQuestionsSpan.textContent = totalQuestions;
+            questionActuelleSpan.textContent = questionNum;
         }
 
         // Gérer la soumission du formulaire
         document.getElementById('quiz-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            console.log('Form submitted!'); // Debug log
             
             // Vérifier que la dernière question a une réponse
             const questionCourante = document.querySelector('.question-card.active');
+            console.log('Current question:', questionCourante ? questionCourante.getAttribute('data-question') : 'None'); // Debug log
             const reponseSelectionnee = questionCourante.querySelector('input[type="radio"]:checked');
             
             if (!reponseSelectionnee) {
-                alert('Veuillez répondre à la dernière question.');
+                alert('Please answer the last question.');
                 return;
             }
+
+            console.log('Selected answer:', reponseSelectionnee.value); // Debug log
 
             // Calculer le résultat
             const formData = new FormData(this);
@@ -718,29 +2328,25 @@
 
             // Compter les points
             for (let [name, value] of formData.entries()) {
-                // Gérer les nouvelles valeurs de la première question
-                if (value === 'LEADERSHIP') {
-                    scores['CERIUM'] += 1;
-                    scores['PRASEODYME'] += 1;
-                    scores['NEODYME'] += 1;
-                } else if (value === 'SHY_SMILE') {
-                    scores['LANTHANE'] += 1;
-                    scores['TELLURE'] += 1;
-                    scores['GADOLINIUM'] += 1;
-                } else if (value === 'TOO_SMART') {
-                    scores['CERIUM'] += 1;
-                    scores['PRASEODYME'] += 1;
-                } else if (value === 'HAPPY_TEAM') {
-                    scores['DYSPROSIUM'] += 1;
-                    scores['LANTHANE'] += 1;
-                } else {
-                    // Système original pour les autres questions
-                    const [type, points] = value.split(':');
-                    if (type && points) {
+                console.log('Processing:', name, '=', value); // Debug log
+                // Ignorer les valeurs de chemin spéciales
+                if (value.includes('_PATH') || value === 'EXIT_ENDING') {
+                    continue;
+                }
+                
+                // Nouveau système de scoring pour toutes les questions
+                // Format: "TYPE:POINTS,TYPE:POINTS" ou "TYPE:POINTS"
+                const entries = value.split(',');
+                
+                for (let entry of entries) {
+                    const [type, points] = entry.split(':');
+                    if (type && points && scores.hasOwnProperty(type)) {
                         scores[type] += parseInt(points);
                     }
                 }
             }
+
+            console.log('Final scores:', scores); // Debug log
 
             // Trouver le type gagnant
             let typeGagnant = 'CERIUM';
@@ -752,29 +2358,103 @@
                 }
             }
 
-            afficherResultat(typeGagnant);
+            console.log('Winner:', typeGagnant); // Debug log
+            
+            // Store the winner for later display
+            window.quizResult = typeGagnant;
+            
+            // Show REEvolutionaTe message first
+            document.getElementById('reevolutionate-message').style.display = 'flex';
         });
+
+        function submitQuiz() {
+            console.log('Submit quiz function called!'); // Debug log
+            
+            // Vérifier que la dernière question a une réponse
+            const questionCourante = document.querySelector('.question-card.active');
+            console.log('Current question:', questionCourante ? questionCourante.getAttribute('data-question') : 'None'); // Debug log
+            const reponseSelectionnee = questionCourante.querySelector('input[type="radio"]:checked');
+            
+            if (!reponseSelectionnee) {
+                alert('Please answer the last question.');
+                return;
+            }
+
+            console.log('Selected answer:', reponseSelectionnee.value); // Debug log
+
+            // Calculer le résultat
+            const formData = new FormData(document.getElementById('quiz-form'));
+            const scores = {
+                'CERIUM': 0,
+                'DYSPROSIUM': 0,
+                'PRASEODYME': 0,
+                'LANTHANE': 0,
+                'GADOLINIUM': 0,
+                'NEODYME': 0,
+                'TELLURE': 0
+            };
+
+            // Compter les points
+            for (let [name, value] of formData.entries()) {
+                console.log('Processing:', name, '=', value); // Debug log
+                // Ignorer les valeurs de chemin spéciales
+                if (value.includes('_PATH') || value === 'EXIT_ENDING') {
+                    continue;
+                }
+                
+                // Nouveau système de scoring pour toutes les questions
+                // Format: "TYPE:POINTS,TYPE:POINTS" ou "TYPE:POINTS"
+                const entries = value.split(',');
+                
+                for (let entry of entries) {
+                    const [type, points] = entry.split(':');
+                    if (type && points && scores.hasOwnProperty(type)) {
+                        scores[type] += parseInt(points);
+                    }
+                }
+            }
+
+            console.log('Final scores:', scores); // Debug log
+
+            // Trouver le type gagnant
+            let typeGagnant = 'CERIUM';
+            let scoreMax = 0;
+            for (let type in scores) {
+                if (scores[type] > scoreMax) {
+                    scoreMax = scores[type];
+                    typeGagnant = type;
+                }
+            }
+
+            console.log('Winner:', typeGagnant); // Debug log
+            
+            // Store the winner for later display
+            window.quizResult = typeGagnant;
+            
+            // Show REEvolutionaTe message first
+            document.getElementById('reevolutionate-message').style.display = 'flex';
+        }
 
         function afficherResultat(type) {
             const resultats = {
                 'CERIUM': {
-                    titre: 'Le Cérium Exploratoire �',
-                    description: 'Comme le Cérium, tu es polyvalent et adaptable ! Tu excelles dans la découverte de nouvelles applications et tu sais t\'adapter à différentes situations. Ta curiosité naturelle te pousse à explorer de nouveaux territoires.',
+                    titre: 'Le Cerium Exploratoire 🔍',
+                    description: 'Comme le Cerium, tu es polyvalent et adaptable ! Tu excelles dans la découverte de nouvelles applications et tu sais t\'adapter à différentes situations. Ta curiosité naturelle te pousse à explorer de nouveaux territoires.',
                     couleur: '#f96628'
                 },
                 'DYSPROSIUM': {
-                    titre: 'Le Dysprosium Dysfonctionnel �‍♂️',
+                    titre: 'Le Dysprosium Dysfonctionnel 🏄‍♂️',
                     description: 'Tel le Dysprosium, tu mets le fun dans dysfonctionnel ! Tu es fou, impitoyable mais génial. Tu sais comment t\'amuser même quand ta maison brûle. Talent caché : tu es incroyable au crochet !',
                     couleur: '#71aca2'
                 },
                 'PRASEODYME': {
-                    titre: 'Le Praséodyme Président 👑',
-                    description: 'Comme le Praséodyme, tu es le chef qui organise les meilleures fêtes ! Tu es photogénique, tu fais de beaux discours, mais tu es autoritaire et tu as zéro chance. Talent caché : tu connais toutes les chansons de Taylor Swift par cœur !',
+                    titre: 'Le Praseodymium Président 👑',
+                    description: 'Comme le Praseodymium, tu es le chef qui organise les meilleures fêtes ! Tu es photogénique, tu fais de beaux discours, mais tu es autoritaire et tu as zéro chance. Talent caché : tu connais toutes les chansons de Taylor Swift par cœur !',
                     couleur: '#fda968'
                 },
                 'LANTHANE': {
-                    titre: 'Le Lanthane Tranquille �',
-                    description: 'Tel le Lanthane, tu es très décontracté et le plus gentil ! Tu es un peu lent mais incroyablement chill. Tu peux dormir n\'importe où et tu donnes les meilleurs câlins. Talent caché : tu peux roter l\'alphabet à l\'envers !',
+                    titre: 'Le Lanthanum Tranquille 😴',
+                    description: 'Tel le Lanthanum, tu es très décontracté et le plus gentil ! Tu es un peu lent mais incroyablement chill. Tu peux dormir n\'importe où et tu donnes les meilleurs câlins. Talent caché : tu peux roter l\'alphabet à l\'envers !',
                     couleur: '#ac6b9d'
                 },
                 'GADOLINIUM': {
@@ -783,13 +2463,13 @@
                     couleur: '#8bc34a'
                 },
                 'NEODYME': {
-                    titre: 'Le Néodyme Complotiste 🕶️',
-                    description: 'Tel le Néodyme, tu ne fais confiance à rien ni personne ! Tu portes des lunettes bizarres, tu argumentes toujours avec Cérium et tu penses que tout est un complot. Talent caché : tu transformes ta liste de courses en manifeste !',
+                    titre: 'Le Neodymium Complotiste 😎',
+                    description: 'Tel le Neodymium, tu ne fais confiance à rien ni personne ! Tu portes des lunettes bizarres, tu argumentes toujours avec Cerium et tu penses que tout est un complot. Talent caché : tu transformes ta liste de courses en manifeste !',
                     couleur: '#2196f3'
                 },
                 'TELLURE': {
-                    titre: 'Le Tellure Loup Solitaire �',
-                    description: 'Comme le Tellure, tu es unique et mystérieux ! Tu aimes le temps seul, tu ne parles pas beaucoup sauf pour dire des trucs complètement fous. Tu es détective privé et tu portes une veste en cuir. Phrase d\'accroche : "Tu veux voir mon hangar ?"',
+                    titre: 'Le Tellurium Loup Solitaire 🐺',
+                    description: 'Comme le Tellurium, tu es unique et mystérieux ! Tu aimes le temps seul, tu ne parles pas beaucoup sauf pour dire des trucs complètement fous. Tu es détective privé et tu portes une veste en cuir. Phrase d\'accroche : "Tu veux voir mon hangar ?"',
                     couleur: '#ff5722'
                 }
             };
@@ -805,41 +2485,29 @@
             creerConfettis();
         }
 
-        function recommencer() {
-            // Réinitialiser
-            questionActuelle = 1;
+        function showREEResult() {
+            // Hide the REEvolutionaTe message
+            document.getElementById('reevolutionate-message').style.display = 'none';
             
-            // Réinitialiser le formulaire
-            document.getElementById('quiz-form').reset();
-            
-            // Réinitialiser les questions
-            document.querySelectorAll('.question-card').forEach((q, i) => {
-                if (i === 0) {
-                    q.classList.add('active');
-                } else {
-                    q.classList.remove('active');
-                }
-            });
-            
-            // Masquer le résultat et afficher l'accueil
-            document.getElementById('resultat').style.display = 'none';
-            document.getElementById('quiz').style.display = 'none';
-            document.getElementById('accueil').style.display = 'block';
+            // Show the actual REE result using the stored result
+            if (window.quizResult) {
+                afficherResultat(window.quizResult);
+            }
         }
 
         function partager() {
             const titre = document.getElementById('resultat-titre').textContent;
-            const texte = `Je viens de faire le quiz de personnalité et je suis ${titre} ! Et toi, quel type es-tu ?`;
+            const texte = `I just did the personality quiz and I am ${titre}! What about you, what type are you?`;
             
             if (navigator.share) {
                 navigator.share({
-                    title: 'Mon résultat au Quiz de Personnalité',
+                    title: 'My result to the Personality Quiz',
                     text: texte,
                     url: window.location.href
                 });
             } else {
                 navigator.clipboard.writeText(texte + ' ' + window.location.href).then(() => {
-                    alert('Résultat copié dans le presse-papiers !');
+                    alert('Result copied to clipboard!');
                 });
             }
         }
@@ -873,16 +2541,85 @@
             }
         }
 
-        // Ajouter l'animation de chute des confettis
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fall {
-                to {
-                    transform: translateY(100vh) rotate(360deg);
+        // Fonctions pour la fin spéciale
+        function afficherFinSpeciale() {
+            document.getElementById('exit-ending').style.display = 'flex';
+            creerConfettis();
+        }
+
+        function continueToPersonalityQuiz() {
+            // Calculer le résultat basé sur les réponses données jusqu'à présent
+            const formData = new FormData(document.getElementById('quiz-form'));
+            const scores = {
+                'CERIUM': 0,
+                'DYSPROSIUM': 0,
+                'PRASEODYME': 0,
+                'LANTHANE': 0,
+                'GADOLINIUM': 0,
+                'NEODYME': 0,
+                'TELLURE': 0
+            };
+
+            // Compter les points des réponses données
+            for (let [name, value] of formData.entries()) {
+                // Ignorer les réponses spéciales
+                if (value === 'EXIT_ENDING' || value.includes('_PATH')) {
+                    continue;
+                }
+                
+                // Nouveau système de scoring
+                const entries = value.split(',');
+                
+                for (let entry of entries) {
+                    const [type, points] = entry.split(':');
+                    if (type && points && scores.hasOwnProperty(type)) {
+                        scores[type] += parseInt(points);
+                    }
                 }
             }
-        `;
-        document.head.appendChild(style);
+
+            // Trouver le type gagnant
+            let typeGagnant = 'CERIUM';
+            let scoreMax = 0;
+            for (let type in scores) {
+                if (scores[type] > scoreMax) {
+                    scoreMax = scores[type];
+                    typeGagnant = type;
+                }
+            }
+
+            // Masquer la fin spéciale et afficher le résultat REE
+            document.getElementById('exit-ending').style.display = 'none';
+            afficherResultat(typeGagnant);
+        }
+
+        // Mettre à jour la fonction recommencer pour gérer aussi la fin spéciale
+        function recommencer() {
+            // Réinitialiser
+            questionActuelle = 1;
+            currentPath = ''; // Reset path tracking
+            
+            // Réinitialiser le formulaire
+            document.getElementById('quiz-form').reset();
+            
+            // Réinitialiser les questions (y compris les chemins spéciaux)
+            document.querySelectorAll('.question-card').forEach((q) => {
+                q.classList.remove('active');
+            });
+            
+            // Activer seulement la première question
+            const firstQuestion = document.querySelector('[data-question="1"]');
+            if (firstQuestion) {
+                firstQuestion.classList.add('active');
+            }
+            
+            // Masquer tous les résultats et afficher l'accueil
+            document.getElementById('resultat').style.display = 'none';
+            document.getElementById('reevolutionate-message').style.display = 'none';
+            document.getElementById('exit-ending').style.display = 'none';
+            document.getElementById('quiz').style.display = 'none';
+            document.getElementById('accueil').style.display = 'block';
+        }
     </script>
 </body>
 </html>
