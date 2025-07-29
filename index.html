@@ -266,6 +266,25 @@
             margin-top: 30px;
         }
 
+        /* === IMAGES QUESTIONS === */
+        .question-image {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .question-image img {
+            max-width: 60%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .question-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
         /* === RÉSULTAT === */
         .resultat-container {
             position: fixed;
@@ -279,16 +298,22 @@
             justify-content: center;
             z-index: 1000;
             animation: fadeIn 0.5s ease-out;
+            overflow-y: auto;
+            padding: 20px;
         }
 
         .carte-resultat {
             background: var(--couleur-carte);
             border-radius: var(--border-radius);
             padding: 40px;
-            max-width: 500px;
-            margin: 20px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            margin: auto;
             text-align: center;
             animation: zoomIn 0.5s ease-out;
+            overflow-y: auto;
+            box-sizing: border-box;
         }
 
         .resultat-contenu h3 {
@@ -467,6 +492,10 @@
                 <div class="question-card active" data-question="1">
                     <h2 class="question-titre">Here you are, one REE out of many in a e-waste. What a mess.... To escape from being killed because of your old age, you have to team up with your other REEs friend. What is your first action ?</h2>
                     
+                    <div class="question-image">
+                        <img src="Q1 décharge.jpg" alt="E-waste with scattered electronic devices" />
+                    </div>
+                    
                     <div class="choix-container">
                         <div class="choix">
                             <input type="radio" id="q1c1" name="question1" value="CERIUM:1,PRASEODYME:1,NEODYME:1" required>
@@ -557,6 +586,10 @@
                 <div class="question-card" data-question="spaceship-moon">
                     <h2 class="question-titre">As you're putting on your astronaut suit to go walk on the moon, you're thinking of the catch phrase you're gonna say. What do you choose?</h2>
                     
+                    <div class="question-image">
+                        <img src="Q4 astronaute.png" alt="Astronaut putting on suit for moon landing" />
+                    </div>
+                    
                     <div class="choix-container">
                         <div class="choix">
                             <input type="radio" id="qsm1" name="spaceship_moon" value="GADOLINIUM:1,PRASEODYME:1,LANTHANE:1,DYSPROSIUM:1" required>
@@ -622,6 +655,10 @@
                 <!-- Landing on Earth -->
                 <div class="question-card" data-question="spaceship-landing">
                     <h2 class="question-titre">Miraculously you manage to land on Earth! You arrive as heroes that saved all REEkind by deviating the asteroid trajectory. What is the first word you say when you land and talk to the first journalist?</h2>
+                    
+                    <div class="question-image">
+                        <img src="Q6 earth.png" alt="Earth landing after space mission" />
+                    </div>
                     
                     <div class="choix-container">
                         <div class="choix">
@@ -690,17 +727,21 @@
                 <div class="question-card" data-question="death-1">
                     <h2 class="question-titre">Suddenly, a big magnet monster comes at you, he wants to bind with you. How do you react ?</h2>
                     
+                    <div class="question-image">
+                        <img src="Q3 magnet.png" alt="Big magnet monster approaching" />
+                    </div>
+                    
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qd1c1" name="death1" value="LANTHANE:2,GADOLINIUM:2,CRYING_OR_HUGS_PATH" required>
+                            <input type="radio" id="qd1c1" name="death1" value="GADOLINIUM:1,NEODYME:1,CERIUM:1,CRYING_OR_HUGS_PATH" required>
                             <label for="qd1c1">You see it coming closer and start crying thinking this might be your time after all</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qd1c2" name="death1" value="DYSPROSIUM:3,TELLURE:2,COOKIE_PATH" required>
+                            <input type="radio" id="qd1c2" name="death1" value="LANTHANE:1,TELLURE:1,PRASEODYME:1,COOKIE_PATH" required>
                             <label for="qd1c2">You don't care about it and focus on a big giant cookie in the middle of the trash that smells like your grandma's house. You go eat it.</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qd1c3" name="death1" value="LANTHANE:3,GADOLINIUM:3,CRYING_OR_HUGS_PATH" required>
+                            <input type="radio" id="qd1c3" name="death1" value="GADOLINIUM:1,DYSPROSIUM:1,LANTHANE:1,CRYING_OR_HUGS_PATH" required>
                             <label for="qd1c3">You love hugs so you welcome it with open arms. It's cuddle o'clock.</label>
                         </div>
                     </div>
@@ -719,21 +760,25 @@
                 <div class="question-card" data-question="death-crying-hugs">
                     <h2 class="question-titre">You forgot that you have a -10 myopia and you sat on your glasses... This is no monster but just your reflection in a mirror. What is your reflection ?</h2>
                     
+                    <div class="question-image">
+                        <img src="Q4 mirror.png" alt="Looking at reflection in a mirror" />
+                    </div>
+                    
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qch1" name="crying_hugs" value="LANTHANE:2,CERIUM:2" required>
+                            <input type="radio" id="qch1" name="crying_hugs" value="CERIUM:1,NEODYME:1" required>
                             <label for="qch1">I should eat more carrots... could be good for my eyes.</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qch2" name="crying_hugs" value="GADOLINIUM:2,TELLURE:2" required>
+                            <input type="radio" id="qch2" name="crying_hugs" value="GADOLINIUM:1,LANTHANE:1,DYSPROSIUM:1,PRASEODYME:1,TELLURE:1" required>
                             <label for="qch2">Daam, I'm getting oooooold !</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qch3" name="crying_hugs" value="PRASEODYME:3,NEODYME:2" required>
+                            <input type="radio" id="qch3" name="crying_hugs" value="GADOLINIUM:1,DYSPROSIUM:1,TELLURE:1" required>
                             <label for="qch3">OMG, I have jucy lips ! Thank you mum's DNA</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qch4" name="crying_hugs" value="LANTHANE:3,GADOLINIUM:3,CRY_MORE_PATH" required>
+                            <input type="radio" id="qch4" name="crying_hugs" value="GADOLINIUM:1,NEODYME:1,CRY_MORE_PATH" required>
                             <label for="qch4">You cry even more</label>
                         </div>
                     </div>
@@ -754,23 +799,23 @@
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qcm1" name="cry_more" value="CERIUM:3,LANTHANE:2" required>
+                            <input type="radio" id="qcm1" name="cry_more" value="CERIUM:1,DYSPROSIUM:1,TELLURE:1" required>
                             <label for="qcm1">Train</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qcm2" name="cry_more" value="PRASEODYME:3,NEODYME:3" required>
+                            <input type="radio" id="qcm2" name="cry_more" value="PRASEODYME:1,GADOLINIUM:1,TELLURE:1" required>
                             <label for="qcm2">Limousine</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qcm3" name="cry_more" value="DYSPROSIUM:3,GADOLINIUM:2" required>
+                            <input type="radio" id="qcm3" name="cry_more" value="LANTHANE:1,DYSPROSIUM:1" required>
                             <label for="qcm3">Tandem</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qcm4" name="cry_more" value="TELLURE:3,LANTHANE:2" required>
+                            <input type="radio" id="qcm4" name="cry_more" value="DYSPROSIUM:1,NEODYME:1,LANTHANE:1,TELLURE:1" required>
                             <label for="qcm4">On a T-rex back</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qcm5" name="cry_more" value="GADOLINIUM:3,CERIUM:2" required>
+                            <input type="radio" id="qcm5" name="cry_more" value="GADOLINIUM:1,TELLURE:1,DYSPROSIUM:1,NEODYME:1,PRASEODYME:1,LANTHANE:1" required>
                             <label for="qcm5">Teleportation shoes</label>
                         </div>
                     </div>
@@ -791,15 +836,15 @@
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qmr1" name="mirror_reflection" value="LANTHANE:3,TELLURE:2,ALL_ALONE_PATH" required>
+                            <input type="radio" id="qmr1" name="mirror_reflection" value="GADOLINIUM:1,LANTHANE:1,CERIUM:1,ALL_ALONE_PATH" required>
                             <label for="qmr1">You didn't see everybody leaving</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qmr2" name="mirror_reflection" value="PRASEODYME:3,GADOLINIUM:3,BEAUTIFUL_PATH" required>
+                            <input type="radio" id="qmr2" name="mirror_reflection" value="GADOLINIUM:1,PRASEODYME:1,TELLURE:1,BEAUTIFUL_PATH" required>
                             <label for="qmr2">You're too damn beautiful that all your REEs friends start looking at your reflection</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qmr3" name="mirror_reflection" value="DYSPROSIUM:3,NEODYME:2,SAY_YES_PATH" required>
+                            <input type="radio" id="qmr3" name="mirror_reflection" value="LANTHANE:1,NEODYME:1,GADOLINIUM:1,DYSPROSIUM:1,Y_YES_PATH" required>
                             <label for="qmr3">You propose to yourself and say YEESSS !!!</label>
                         </div>
                     </div>
@@ -818,21 +863,25 @@
                 <div class="question-card" data-question="death-cookie">
                     <h2 class="question-titre">Too bad for you, you suddenly have a cramp... I guess it's time to say goodbye... What are your last words ?</h2>
                     
+                    <div class="question-image">
+                        <img src="Q4 cookie.png" alt="Cookie causing stomach cramp" />
+                    </div>
+                    
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qck1" name="cookie_path" value="DYSPROSIUM:3,GADOLINIUM:2" required>
+                            <input type="radio" id="qck1" name="cookie_path" value="DYSPROSIUM:1" required>
                             <label for="qck1">"I have no regrets. This cookie was REElicious"</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qck2" name="cookie_path" value="TELLURE:3,LANTHANE:2" required>
+                            <input type="radio" id="qck2" name="cookie_path" value="CERIUM:1:DYSPROSIUM:1,PRASEODYME:1,GADOLINIUM:1" required>
                             <label for="qck2">"Woman, I only had 1 life.... Goodbye recycling"</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qck3" name="cookie_path" value="CERIUM:2,PRASEODYME:2" required>
+                            <input type="radio" id="qck3" name="cookie_path" value="LANTHANE:1,GADOLINIUM:1,DYSPROSIUM:1" required>
                             <label for="qck3">"Man, why did I always skip sport at school"</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qck4" name="cookie_path" value="NEODYME:3,GADOLINIUM:2" required>
+                            <input type="radio" id="qck4" name="cookie_path" value="TELLURE:1,NEODYME:1,GADOLINIUM:1,DYSPROSIUM:1" required>
                             <label for="qck4">"F*ck I'm gonna die a virgin"</label>
                         </div>
                     </div>
@@ -853,19 +902,19 @@
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qsh1" name="still_hungry" value="GADOLINIUM:3,PRASEODYME:2" required>
+                            <input type="radio" id="qsh1" name="still_hungry" value="LANTHANE:1,DYSPROSIUM:1,NEODYME:1" required>
                             <label for="qsh1">Look for more cookies in the trash</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qsh2" name="still_hungry" value="DYSPROSIUM:3,TELLURE:2" required>
+                            <input type="radio" id="qsh2" name="still_hungry" value="LANTHANE:1" required>
                             <label for="qsh2">Start eating anything that looks remotely edible</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qsh3" name="still_hungry" value="CERIUM:3,LANTHANE:2" required>
+                            <input type="radio" id="qsh3" name="still_hungry" value="CERIUM:1,PRASEODYME:1,GADOLINIUM:1" required>
                             <label for="qsh3">Try to find a proper kitchen to cook something</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qsh4" name="still_hungry" value="NEODYME:3,GADOLINIUM:2" required>
+                            <input type="radio" id="qsh4" name="still_hungry" value="TELLURE:1" required>
                             <label for="qsh4">Complain loudly that one cookie is never enough</label>
                         </div>
                     </div>
@@ -884,21 +933,25 @@
                 <div class="question-card" data-question="death-cooking-class">
                     <h2 class="question-titre">Suddenly, a cooking show host appears out of nowhere! They want to teach you how to make the perfect cookie. What's your reaction?</h2>
                     
+                    <div class="question-image">
+                        <img src="Q6 kitchen.png" alt="Cooking show host in kitchen" />
+                    </div>
+                    
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qcc1" name="cooking_class" value="PRASEODYME:3,CERIUM:2" required>
+                            <input type="radio" id="qcc1" name="cooking_class" value="CERIUM:1" required>
                             <label for="qcc1">"Finally! I've been waiting for this moment my whole life!"</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qcc2" name="cooking_class" value="DYSPROSIUM:3,GADOLINIUM:3" required>
+                            <input type="radio" id="qcc2" name="cooking_class" value="DYSPROSIUM:1" required>
                             <label for="qcc2">"Sure, but can we make it extra chocolatey?"</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qcc3" name="cooking_class" value="TELLURE:3,NEODYME:2" required>
+                            <input type="radio" id="qcc3" name="cooking_class" value="GADOLINIUM:1,PRASEODYME:1,NEODYME:1" required>
                             <label for="qcc3">"I don't need help, I'm already a cookie master"</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qcc4" name="cooking_class" value="LANTHANE:3,GADOLINIUM:2" required>
+                            <input type="radio" id="qcc4" name="cooking_class" value="LANTHANE:1,TELLURE:1" required>
                             <label for="qcc4">"Can we just skip to the eating part?"</label>
                         </div>
                     </div>
@@ -915,23 +968,23 @@
 
                 <!-- ALL ALONE PATH QUESTION -->
                 <div class="question-card" data-question="death-all-alone">
-                    <h2 class="question-titre">You finally get to be alone with your crush: YOU ! As any normal person would do, you start singing : "All by myyyyyyself" from Cerium Dion. You're savior love this song and comes rescue you from this waste. But who is this REE ?</h2>
+                    <h2 class="question-titre">You finally get to be alone with your crush: YOU ! As any normal person would do, you start singing : "All by myyyyyyself" from Cerium Dion. Your savior love this song and comes rescue you from this waste. But who is this REE ?</h2>
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qaa1" name="all_alone" value="PRASEODYME:3,NEODYME:3" required>
+                            <input type="radio" id="qaa1" name="all_alone" value="GADOLINIUM:1,DYSPROSIUM:1" required>
                             <label for="qaa1">pREEnce charming, he's got mad REEzz !</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qaa2" name="all_alone" value="GADOLINIUM:3,TELLURE:2" required>
+                            <input type="radio" id="qaa2" name="all_alone" value="NEODYME:1,LANTHANE:1,CERIUM:1,PRASEODYME:1" required>
                             <label for="qaa2">It's a witch... She will rescue you but want your honey voice in return. Darn it !</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qaa3" name="all_alone" value="DYSPROSIUM:3,LANTHANE:2" required>
+                            <input type="radio" id="qaa3" name="all_alone" value="GADOLINIUM:1,TELLURE:1,GADOLINIUM:1" required>
                             <label for="qaa3">Y'all heard of the famous Puss in Boots ? Meow, he's fluffy</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qaa4" name="all_alone" value="LANTHANE:3,CERIUM:2" required>
+                            <input type="radio" id="qaa4" name="all_alone" value="LANTHANE:1,NEODYME:1,PRASEODYME:1,CERIUM:1" required>
                             <label for="qaa4">It's your mum.</label>
                         </div>
                     </div>
@@ -948,23 +1001,23 @@
 
                 <!-- BEAUTIFUL PATH QUESTION -->
                 <div class="question-card" data-question="death-beautiful">
-                    <h2 class="question-titre">Your beautifullness has bewitch everybody. You take this opportunities to regroupe everybody and work on your final escape plan. What is this great speech ?</h2>
+                    <h2 class="question-titre">Your beautifullness has bewitched everybody. You take this opportunity to regroupe everybody and work on your final escape plan. What is this great speech ?</h2>
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qbp1" name="beautiful" value="PRASEODYME:3,CERIUM:3" required>
+                            <input type="radio" id="qbp1" name="beautiful" value="PRASEODYME:1,TELLURE:1,NEODYME:1,GADOLINIUM:1" required>
                             <label for="qbp1">"I have a dREEam..." (you know the rest)</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qbp2" name="beautiful" value="LANTHANE:3,GADOLINIUM:2" required>
+                            <input type="radio" id="qbp2" name="beautiful" value="CERIUM:1,TELLURE:1,LANTHANE:1" required>
                             <label for="qbp2">"As Grandma says: 'AI can code but can it make soup ?'"</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qbp3" name="beautiful" value="TELLURE:3,DYSPROSIUM:2" required>
+                            <input type="radio" id="qbp3" name="beautiful" value="PRASEODYME:1,DYSPROSIUM:1,NEODYME:1" required>
                             <label for="qbp3">"Winter is coming, move your as* !"</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qbp4" name="beautiful" value="GADOLINIUM:3,NEODYME:2" required>
+                            <input type="radio" id="qbp4" name="beautiful" value="NEODYME:1,TELLURE:1,CERIUM:1" required>
                             <label for="qbp4">"Expecto Patronum" HarREE Pot-Te-r was right, it works !</label>
                         </div>
                     </div>
@@ -981,23 +1034,23 @@
 
                 <!-- SAY YES PATH QUESTION -->
                 <div class="question-card" data-question="death-say-yes">
-                    <h2 class="question-titre">Tellurium Swift heard your response and start singing one of his main hits "Love stoREE". Everybody start to sing, it's so beautiful. You're savior love this song and comes rescue you. But who is this REE ?</h2>
+                    <h2 class="question-titre">Tellurium Swift heard your response and start singing one of his main hits "Love stoREE". Everybody start to sing, it's so beautiful. Your savior love this song and comes rescue you. But who is this REE ?</h2>
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qsy1" name="say_yes" value="PRASEODYME:3,NEODYME:3" required>
+                            <input type="radio" id="qsy1" name="say_yes" value="GADOLINIUM:1,DYSPROSIUM:1" required>
                             <label for="qsy1">pREEnce charming, he's got mad REEzz !</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qsy2" name="say_yes" value="GADOLINIUM:3,TELLURE:2" required>
+                            <input type="radio" id="qsy2" name="say_yes" value="NEODYME:1,LANTHANE:1,CERIUM:1,PRASEODYME:1" required>
                             <label for="qsy2">It's a witch... She will rescue you but want your honey voice in return. Darn it !</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qsy3" name="say_yes" value="DYSPROSIUM:3,LANTHANE:2" required>
+                            <input type="radio" id="qsy3" name="say_yes" value="GADOLINIUM:1,TELLURE:1,GADOLINIUM:1" required>
                             <label for="qsy3">Y'all heard of the famous Puss in Boots ? Meow, he's fluffy</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qsy4" name="say_yes" value="LANTHANE:3,CERIUM:2" required>
+                            <input type="radio" id="qsy4" name="say_yes" value="LANTHANE:1,NEODYME:1,PRASEODYME:1,CERIUM:1" required>
                             <label for="qsy4">It's your mum.</label>
                         </div>
                     </div>
@@ -1016,25 +1069,29 @@
                 <div class="question-card" data-question="apero-1">
                     <h2 class="question-titre">As it is probably your last apero, it must be PERFECT. Everybody participates and goes around to find the best ingredients. What do you choose to take care of ?</h2>
                     
+                    <div class="question-image">
+                        <img src="Q3 apéro.png" alt="Perfect apero setup with friends" />
+                    </div>
+                    
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qa1c1" name="apero1" value="GADOLINIUM:3,PRASEODYME:2" required>
+                            <input type="radio" id="qa1c1" name="apero1" value="CERIUM:1,GADOLINIUM:1" required>
                             <label for="qa1c1">Vegetable sticks (with spices and all because you're fancy and healthy)</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qa1c2" name="apero1" value="LANTHANE:3,CERIUM:2" required>
+                            <input type="radio" id="qa1c2" name="apero1" value="LANTHANE:1" required>
                             <label for="qa1c2">Cheese and crackers</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qa1c3" name="apero1" value="GADOLINIUM:2,NEODYME:2" required>
+                            <input type="radio" id="qa1c3" name="apero1" value="DYSPROSIUM:1" required>
                             <label for="qa1c3">Hummus and other dips kind</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qa1c4" name="apero1" value="TELLURE:3" required>
+                            <input type="radio" id="qa1c4" name="apero1" value="PRASEODYME:1" required>
                             <label for="qa1c4">Beef sticks</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qa1c5" name="apero1" value="DYSPROSIUM:3" required>
+                            <input type="radio" id="qa1c5" name="apero1" value="TELLURE:1,LANTHANE:1" required>
                             <label for="qa1c5">You don't really cook but take care of the drinks ;)</label>
                         </div>
                     </div>
@@ -1055,19 +1112,19 @@
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qam1" name="apero_music" value="TELLURE:3,PRASEODYME:2" required>
+                            <input type="radio" id="qam1" name="apero_music" value="GADOLINIUM:1,TELLURE:1" required>
                             <label for="qam1">Tellurium Swift</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qam2" name="apero_music" value="DYSPROSIUM:3,NEODYME:2" required>
+                            <input type="radio" id="qam2" name="apero_music" value="LANTHANE:1,NEODYME:1" required>
                             <label for="qam2">REEminem</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qam3" name="apero_music" value="PRASEODYME:3,GADOLINIUM:2" required>
+                            <input type="radio" id="qam3" name="apero_music" value="GADOLINIUM:1,TELLURE:1" required>
                             <label for="qam3">REEyoncé AKA Queen REE</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qam4" name="apero_music" value="LANTHANE:3,CERIUM:2" required>
+                            <input type="radio" id="qam4" name="apero_music" value="PRASEODYME:1,CERIUM:1" required>
                             <label for="qam4">The REElling stones</label>
                         </div>
                     </div>
@@ -1084,23 +1141,23 @@
 
                 <!-- APERO GAME QUESTION -->
                 <div class="question-card" data-question="apero-game">
-                    <h2 class="question-titre">It looks like some are still a bit stress from the whole trap for ever in the waste thing.... To light up the mood you propose a to play game. Which one ?</h2>
+                    <h2 class="question-titre">It looks like some are still a bit stress from the whole trap for ever in the waste thing.... To light up the mood you propose to play a game. Which one ?</h2>
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qag1" name="apero_game" value="TELLURE:3,NEODYME:2" required>
+                            <input type="radio" id="qag1" name="apero_game" value="PRASEODYME:1,NEODYME:1" required>
                             <label for="qag1">Cards game like a little poker to make things more interesting</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qag2" name="apero_game" value="DYSPROSIUM:3,GADOLINIUM:2" required>
+                            <input type="radio" id="qag2" name="apero_game" value="CERIUM:1,TELLURE:1" required>
                             <label for="qag2">A classic game of charades</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qag3" name="apero_game" value="CERIUM:3,PRASEODYME:2" required>
+                            <input type="radio" id="qag3" name="apero_game" value="CERIUM:1,DYSPROSIUM:1" required>
                             <label for="qag3">Trivial poursuit so that you flex on your high culture general</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qag4" name="apero_game" value="PRASEODYME:3,LANTHANE:2" required>
+                            <input type="radio" id="qag4" name="apero_game" value="LANTHANE:1,GADOLINIUM:1" required>
                             <label for="qag4">Truth or dare</label>
                         </div>
                     </div>
@@ -1121,19 +1178,19 @@
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qpct1" name="poker_charades" value="TELLURE:3,NEODYME:2" required>
+                            <input type="radio" id="qpct1" name="poker_charades" value="PRASEODYME:1,DYSPROSIUM:1,CERIUM:1" required>
                             <label for="qpct1">You did actually cheat but choose to play denial : "Me, cheating ? I would never dare to !"</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qpct2" name="poker_charades" value="LANTHANE:3,GADOLINIUM:2" required>
+                            <input type="radio" id="qpct2" name="poker_charades" value="LANTHANE:1" required>
                             <label for="qpct2">You did cheat but don't like fighting so you admit everything and offer a big hug as a peace offering</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qpct3" name="poker_charades" value="PRASEODYME:3,CERIUM:2" required>
+                            <input type="radio" id="qpct3" name="poker_charades" value="GADOLINIUM:1,NEODYME:1,TELLURE:1,CERIUM:1" required>
                             <label for="qpct3">You would never cheat, you're just too talented</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qpct4" name="poker_charades" value="DYSPROSIUM:3,LANTHANE:2" required>
+                            <input type="radio" id="qpct4" name="poker_charades" value="GADOLINIUM:1" required>
                             <label for="qpct4">You panic and start singing "under the sea" from the little mermaid</label>
                         </div>
                     </div>
@@ -1152,13 +1209,17 @@
                 <div class="question-card" data-question="apero-truth-dare">
                     <h2 class="question-titre">Someone dare you to walk on fire because this is what true leader does (the office ref)... Now are you a true leader ?</h2>
                     
+                    <div class="question-image">
+                        <img src="Q6 fire (truth or dare).png" alt="Walking on fire challenge from truth or dare" />
+                    </div>
+                    
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qtd1" name="truth_dare" value="TELLURE:3,PRASEODYME:2,YES_PATH" required>
+                            <input type="radio" id="qtd1" name="truth_dare" value="PRASEODYME:1,NEODYME:1,GADOLINIUM:1,LANTHANE:1,YES_PATH" required>
                             <label for="qtd1">Yes</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qtd2" name="truth_dare" value="LANTHANE:3,CERIUM:2,NO_TRUTH_PATH" required>
+                            <input type="radio" id="qtd2" name="truth_dare" value="CERIUM:1,DYSPROSIUM:1,TELLURE:1,NO_TRUTH_PATH" required>
                             <label for="qtd2">No</label>
                         </div>
                     </div>
@@ -1179,12 +1240,12 @@
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qyf1" name="yes_fire" value="TELLURE:3,DYSPROSIUM:2" required>
+                            <input type="radio" id="qyf1" name="yes_fire" value="DYSPROSIUM:1,LANTHANE:1,GADOLINIUM:1,TELLURE:1" required>
                             <label for="qyf1">All good, you're super resistant to pain</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qyf2" name="yes_fire" value="LANTHANE:3,GADOLINIUM:2" required>
-                            <label for="qyf2">You're crying, begging for ice and calling for you mama... (Normal reaction, just just walked on fire)</label>
+                            <input type="radio" id="qyf2" name="yes_fire" value="CERIUM:1,NEODYME:1,PRASEODYME:1" required>
+                            <label for="qyf2">You're crying, begging for ice and calling for you mama... (Normal reaction, just walked on fire)</label>
                         </div>
                     </div>
                     
@@ -1204,19 +1265,19 @@
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qnt1" name="no_truth" value="TELLURE:3,LANTHANE:2" required>
+                            <input type="radio" id="qnt1" name="no_truth" value="LANTHANE:1,TELLURE:1" required>
                             <label for="qnt1">Fear of snakes</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qnt2" name="no_truth" value="DYSPROSIUM:3,GADOLINIUM:2" required>
+                            <input type="radio" id="qnt2" name="no_truth" value="DYSPROSIUM:1,LANTHANE:1" required>
                             <label for="qnt2">Fear of foot</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qnt3" name="no_truth" value="CERIUM:3,PRASEODYME:2" required>
+                            <input type="radio" id="qnt3" name="no_truth" value="CERIUM:1,GADOLINIUM:1,NEODYME:1" required>
                             <label for="qnt3">Fear of chemistry</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qnt4" name="no_truth" value="NEODYME:3,GADOLINIUM:2" required>
+                            <input type="radio" id="qnt4" name="no_truth" value="DYSPROSIUM:1,PRASEODYME:1,GADOLINIUM:1,NEODYME:1" required>
                             <label for="qnt4">Fear of missing out (FOMO)</label>
                         </div>
                     </div>
@@ -1233,23 +1294,23 @@
 
                 <!-- TELLURIUM SWIFT QUESTION (after yes-fire or no-truth) -->
                 <div class="question-card" data-question="apero-tellurium-swift">
-                    <h2 class="question-titre">After this chaotic scene you, the team's mood drop and allow you to hear a music across the e-waste. As you are approaching it you realize that it's a concert from no-one else but the star Tellurium Swift !!!</h2>
+                    <h2 class="question-titre">After this chaotic scene, the team's mood drop and allows you to hear a music across the e-waste. As you are approaching it you realize that it's a concert from no-one else but the star Tellurium Swift !!!</h2>
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qts1" name="tellurium_swift" value="PRASEODYME:3,NEODYME:2" required>
+                            <input type="radio" id="qts1" name="tellurium_swift" value="GADOLINIUM:1" required>
                             <label for="qts1">You go full crazy fan mode and try to pass security to hug your idole</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qts2" name="tellurium_swift" value="DYSPROSIUM:3,GADOLINIUM:2" required>
+                            <input type="radio" id="qts2" name="tellurium_swift" value="DYSPROSIUM:1,TELLURIUM:1,PRASEODYME:1" required>
                             <label for="qts2">You let out your goofyness and start dancing like no-one is looking at you</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qts3" name="tellurium_swift" value="LANTHANE:3,CERIUM:2" required>
+                            <input type="radio" id="qts3" name="tellurium_swift" value="CERIUM:1" required>
                             <label for="qts3">You're an introvert so just moving a bit your legs is a bit effort</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qts4" name="tellurium_swift" value="TELLURE:3,NEODYME:2" required>
+                            <input type="radio" id="qts4" name="tellurium_swift" value="LANTHANE:1,NEODYME:1" required>
                             <label for="qts4">You're not a fan and put your earpods on to listen to REEminem.</label>
                         </div>
                     </div>
@@ -1266,23 +1327,23 @@
 
                 <!-- GETTING OUT ON MONGOLFIÈRE QUESTION (plasmid riddle) -->
                 <div class="question-card" data-question="apero-mongolfiere">
-                    <h2 class="question-titre">At the end of the concert, Tellurium Swift offer you and your teams to escape on its hot-air balloon but you must first answer a riddle.<br><br>"I'm small and circular, outside the main thread,<br>Carry resistance and tricks that microbes can spread.<br>I don't code for life, but life uses me still—<br>Horizontal transfer? I fit that bill."<br><br><strong>What am I?</strong></h2>
+                    <h2 class="question-titre">At the end of the concert, Tellurium Swift offers you and your teams to escape on its hot-air balloon but you must first answer a riddle.<br><br>"I'm small and circular, outside the main thread,<br>Carry resistance and tricks that microbes can spread.<br>I don't code for life, but life uses me still—<br>Horizontal transfer? I fit that bill."<br><br><strong>What am I?</strong></h2>
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qm1" name="mongolfiere" value="CERIUM:2,DNA_WRONG" required>
+                            <input type="radio" id="qm1" name="mongolfiere" value="CERIUM:1,LANTHANE:1,DNA_WRONG" required>
                             <label for="qm1">DNA</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qm2" name="mongolfiere" value="LANTHANE:2,WEDDING_WRONG" required>
+                            <input type="radio" id="qm2" name="mongolfiere" value="GADOLINIUM:1,DYSPROSIUM:1,WEDDING_WRONG" required>
                             <label for="qm2">A wedding ring</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qm3" name="mongolfiere" value="GADOLINIUM:3,PLASMID_CORRECT" required>
+                            <input type="radio" id="qm3" name="mongolfiere" value="CERIUM:1,TELLURIUM:1,PRASEODYME:1,PLASMID_CORRECT" required>
                             <label for="qm3">A plasmid</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qm4" name="mongolfiere" value="TELLURE:2,EUROPA_WRONG" required>
+                            <input type="radio" id="qm4" name="mongolfiere" value="NEODYME:1,DYSPROSIUM:1,EUROPA_WRONG" required>
                             <label for="qm4">Europa (Jupiter's moon)</label>
                         </div>
                     </div>
@@ -1303,19 +1364,19 @@
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qdn1" name="dna_wrong" value="CERIUM:2,DNA_WRONG" required>
+                            <input type="radio" id="qdn1" name="dna_wrong" value="CERIUM:1,LANTHANE:1,DNA_WRONG" required>
                             <label for="qdn1">DNA</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qdn2" name="dna_wrong" value="LANTHANE:2,WEDDING_WRONG" required>
+                            <input type="radio" id="qdn2" name="dna_wrong" value="GADOLINIUM:1,DYSPROSIUM:1,WEDDING_WRONG" required>
                             <label for="qdn2">A wedding ring</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qdn3" name="dna_wrong" value="GADOLINIUM:3,PLASMID_CORRECT" required>
+                            <input type="radio" id="qdn3" name="dna_wrong" value="CERIUM:1,TELLURIUM:1,PRASEODYME:1,PLASMID_CORRECT" required>
                             <label for="qdn3">A plasmid</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qdn4" name="dna_wrong" value="TELLURE:2,EUROPA_WRONG" required>
+                            <input type="radio" id="qdn4" name="dna_wrong" value="NEODYME:1,DYSPROSIUM:1,EUROPA_WRONG" required>
                             <label for="qdn4">Europa (Jupiter's moon)</label>
                         </div>
                     </div>
@@ -1336,19 +1397,19 @@
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qwr1" name="wedding_wrong" value="CERIUM:2,DNA_WRONG" required>
+                            <input type="radio" id="qwr1" name="wedding_wrong" value="CERIUM:1,LANTHANE:1,DNA_WRONG" required>
                             <label for="qwr1">DNA</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qwr2" name="wedding_wrong" value="LANTHANE:2,WEDDING_WRONG" required>
+                            <input type="radio" id="qwr2" name="wedding_wrong" value="GADOLINIUM:1,DYSPROSIUM:1,WEDDING_WRONG" required>
                             <label for="qwr2">A wedding ring</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qwr3" name="wedding_wrong" value="GADOLINIUM:3,PLASMID_CORRECT" required>
+                            <input type="radio" id="qwr3" name="wedding_wrong" value="CERIUM:1,TELLURIUM:1,PRASEODYME:1,PLASMID_CORRECT" required>
                             <label for="qwr3">A plasmid</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qwr4" name="wedding_wrong" value="TELLURE:2,EUROPA_WRONG" required>
+                            <input type="radio" id="qwr4" name="wedding_wrong" value="NEODYME:1,DYSPROSIUM:1,EUROPA_WRONG" required>
                             <label for="qwr4">Europa (Jupiter's moon)</label>
                         </div>
                     </div>
@@ -1369,19 +1430,19 @@
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qer1" name="europa_wrong" value="CERIUM:2,DNA_WRONG" required>
+                            <input type="radio" id="qer1" name="europa_wrong" value="CERIUM:1,LANTHANE:1,DNA_WRONG" required>
                             <label for="qer1">DNA</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qer2" name="europa_wrong" value="LANTHANE:2,WEDDING_WRONG" required>
+                            <input type="radio" id="qer2" name="europa_wrong" value="GADOLINIUM:1,DYSPROSIUM:1,WEDDING_WRONG" required>
                             <label for="qer2">A wedding ring</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qer3" name="europa_wrong" value="GADOLINIUM:3,PLASMID_CORRECT" required>
+                            <input type="radio" id="qer3" name="europa_wrong" value="CERIUM:1,TELLURIUM:1,PRASEODYME:1,PLASMID_CORRECT" required>
                             <label for="qer3">A plasmid</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qer4" name="europa_wrong" value="TELLURE:2,EUROPA_WRONG" required>
+                            <input type="radio" id="qer4" name="europa_wrong" value="NEODYME:1,DYSPROSIUM:1,EUROPA_WRONG" required>
                             <label for="qer4">Europa (Jupiter's moon)</label>
                         </div>
                     </div>
@@ -1402,19 +1463,19 @@
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qpc1" name="plasmid_correct" value="GADOLINIUM:3,PRASEODYME:2" required>
+                            <input type="radio" id="qpc1" name="plasmid_correct" value="LANTHANE:1,TELLURE:1" required>
                             <label for="qpc1">Enjoy the beautiful view from the hot-air balloon</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qpc2" name="plasmid_correct" value="DYSPROSIUM:3,TELLURE:2" required>
+                            <input type="radio" id="qpc2" name="plasmid_correct" value="GADOLINIUM:1,PRASEODYME:1" required>
                             <label for="qpc2">Take selfies with Tellurium Swift</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qpc3" name="plasmid_correct" value="CERIUM:3,LANTHANE:2" required>
+                            <input type="radio" id="qpc3" name="plasmid_correct" value="CERIUM:1" required>
                             <label for="qpc3">Ask Tellurium Swift about the science behind plasmids</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qpc4" name="plasmid_correct" value="NEODYME:3,GADOLINIUM:2" required>
+                            <input type="radio" id="qpc4" name="plasmid_correct" value="DYSPROSIUM:1,NEODYME:1" required>
                             <label for="qpc4">Plan your next adventure once you land</label>
                         </div>
                     </div>
@@ -1508,9 +1569,10 @@
             <div class="carte-resultat">
                 <h2>🎉 You escaped! 🎉</h2>
                 <div class="resultat-contenu">
-                    <h3 style="color: #71aca2; margin-bottom: 20px;">**CONGRATS — you did it! You're not trash anymore... what a REElief!**</h3>
-                    <p style="text-align: left; line-height: 1.6;">
-                        You've been officially **REEcycled**, thanks to your saviors: the brilliant students of Lausanne behind the **REEvolutionaTe** project.<br><br>
+                    <div id="exit-image-container" style="text-align: center; margin-bottom: 20px;"></div>
+                    <h3 style="color: #71aca2; margin-bottom: 20px;">CONGRATS ! you did it! You're not trash anymore... what a REElief!</h3>
+                    <p style="text-align: left; line-height: 1.4;">
+                        You've been officially REEcycled, thanks to your saviors: the brilliant students of Lausanne behind the **REEvolutionaTe** project.<br><br>
                         They used bacteria to do all the dirty work so you could live on forever.<br>
                         Curious how they pulled that off? Go take a peek behind the scenes: <em>[Wiki link]</em><br><br>
                         You're welcome ;)
@@ -1586,9 +1648,6 @@
                         questionActuelle = 'apero-1';
                         mettreAJourProgress();
                     }
-                    return;
-                } else if (reponseSelectionnee.value.includes('EXIT_ENDING')) {
-                    afficherFinSpeciale();
                     return;
                 }
             }
@@ -1757,7 +1816,7 @@
             }
 
             if (questionActuelle === 'apero-game') {
-                if (reponseSelectionnee.value.includes('PRASEODYME:3,LANTHANE:2')) {
+                if (reponseSelectionnee.value.includes('LANTHANE:1,GADOLINIUM:1')) {
                     // Truth or dare was selected
                     const truthDareQuestion = document.querySelector('[data-question="apero-truth-dare"]');
                     if (truthDareQuestion) {
@@ -2441,46 +2500,56 @@
         function afficherResultat(type) {
             const resultats = {
                 'CERIUM': {
-                    titre: 'Le Cerium Exploratoire 🔍',
-                    description: 'Comme le Cerium, tu es polyvalent et adaptable ! Tu excelles dans la découverte de nouvelles applications et tu sais t\'adapter à différentes situations. Ta curiosité naturelle te pousse à explorer de nouveaux territoires.',
+                    titre: 'The Exploratory Cerium 🔍',
+                    description: 'Like Cerium, you are versatile and adaptable! You excel at discovering new applications and know how to adapt to different situations. Your natural curiosity drives you to explore new territories.',
                     couleur: '#f96628'
                 },
                 'DYSPROSIUM': {
-                    titre: 'Le Dysprosium Dysfonctionnel 🏄‍♂️',
-                    description: 'Tel le Dysprosium, tu mets le fun dans dysfonctionnel ! Tu es fou, impitoyable mais génial. Tu sais comment t\'amuser même quand ta maison brûle. Talent caché : tu es incroyable au crochet !',
+                    titre: 'The Dysfunctional Dysprosium 🏄‍♂️',
+                    description: 'Like Dysprosium, you put the fun in dysfunctional! You\'re crazy, ruthless but brilliant. You know how to have fun even when your house is burning down. Hidden talent: you\'re incredible at crocheting!',
                     couleur: '#71aca2'
                 },
                 'PRASEODYME': {
-                    titre: 'Le Praseodymium Président 👑',
-                    description: 'Comme le Praseodymium, tu es le chef qui organise les meilleures fêtes ! Tu es photogénique, tu fais de beaux discours, mais tu es autoritaire et tu as zéro chance. Talent caché : tu connais toutes les chansons de Taylor Swift par cœur !',
+                    titre: 'The Presidential Praseodymium 👑',
+                    description: 'Like Praseodymium, you\'re the leader who organizes the best parties! You\'re photogenic, you give beautiful speeches, but you\'re authoritarian and have zero luck. Hidden talent: you know all Taylor Swift songs by heart!',
                     couleur: '#fda968'
                 },
                 'LANTHANE': {
-                    titre: 'Le Lanthanum Tranquille 😴',
-                    description: 'Tel le Lanthanum, tu es très décontracté et le plus gentil ! Tu es un peu lent mais incroyablement chill. Tu peux dormir n\'importe où et tu donnes les meilleurs câlins. Talent caché : tu peux roter l\'alphabet à l\'envers !',
+                    titre: 'The Tranquil Lanthanum 😴',
+                    description: 'Like Lanthanum, you are very laid-back and the kindest! You\'re a bit slow but incredibly chill. You can sleep anywhere and give the best hugs. Hidden talent: you can burp the alphabet backwards!',
                     couleur: '#ac6b9d'
                 },
                 'GADOLINIUM': {
-                    titre: 'Le Gadolinium Glamour ✨',
-                    description: 'Comme le Gadolinium, tu as la tenue parfaite pour chaque situation ! Tu es magnifique, extraverti et tu fais de la poésie. Tu es fauché mais romantique désespéré. Talent caché : tu peux boire par le nez !',
+                    titre: 'The Glamorous Gadolinium ✨',
+                    description: 'Like Gadolinium, you have the perfect outfit for every situation! You\'re magnificent, extroverted and you write poetry. You\'re broke but a hopeless romantic. Hidden talent: you can drink through your nose!',
                     couleur: '#8bc34a'
                 },
                 'NEODYME': {
-                    titre: 'Le Neodymium Complotiste 😎',
-                    description: 'Tel le Neodymium, tu ne fais confiance à rien ni personne ! Tu portes des lunettes bizarres, tu argumentes toujours avec Cerium et tu penses que tout est un complot. Talent caché : tu transformes ta liste de courses en manifeste !',
+                    titre: 'The Conspiracy Theorist Neodymium 😎',
+                    description: 'Like Neodymium, you don\'t trust anything or anyone! You wear weird glasses, you always argue with Cerium and you think everything is a conspiracy. Hidden talent: you turn your shopping list into a manifesto!',
                     couleur: '#2196f3'
                 },
                 'TELLURE': {
-                    titre: 'Le Tellurium Loup Solitaire 🐺',
-                    description: 'Comme le Tellurium, tu es unique et mystérieux ! Tu aimes le temps seul, tu ne parles pas beaucoup sauf pour dire des trucs complètement fous. Tu es détective privé et tu portes une veste en cuir. Phrase d\'accroche : "Tu veux voir mon hangar ?"',
+                    titre: 'The Lone Wolf Tellurium 🐺',
+                    description: 'Like Tellurium, you are unique and mysterious! You love alone time, you don\'t talk much except to say completely crazy things. You\'re a private detective and you wear a leather jacket. Pick-up line: "Want to see my shed?"',
                     couleur: '#ff5722'
                 }
             };
 
             const resultat = resultats[type];
-            document.getElementById('resultat-titre').textContent = resultat.titre;
+            
+            // Split the title to separate emoji from text
+            const titleParts = resultat.titre.match(/^(.+?)\s([🔍🏄‍♂️👑😴✨😎🐺])$/);
+            if (titleParts) {
+                // If emoji is found, display it separately from colored text
+                document.getElementById('resultat-titre').innerHTML = `<span style="color: ${resultat.couleur};">${titleParts[1]}</span> ${titleParts[2]}`;
+            } else {
+                // Fallback: display as before
+                document.getElementById('resultat-titre').textContent = resultat.titre;
+                document.getElementById('resultat-titre').style.color = resultat.couleur;
+            }
+            
             document.getElementById('resultat-description').textContent = resultat.description;
-            document.getElementById('resultat-titre').style.color = resultat.couleur;
 
             document.getElementById('resultat').style.display = 'flex';
             
@@ -2546,6 +2615,10 @@
 
         // Fonctions pour la fin spéciale
         function afficherFinSpeciale() {
+            // Add the exit image
+            const imageContainer = document.getElementById('exit-image-container');
+            imageContainer.innerHTML = '<img src="Q2 Exit.png" alt="Exit scene" class="question-image" style="max-width: 60%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">';
+            
             document.getElementById('exit-ending').style.display = 'flex';
             creerConfettis();
         }
