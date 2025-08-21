@@ -692,24 +692,24 @@
                 <!-- EUROPA PATH -->
                 <!-- Europa Discovery -->
                 <div class="question-card" data-question="spaceship-europa">
-                    <h2 class="question-titre">You've reached Europa! You discover a form of microbial life in the subsurface ocean. What's your first reaction?</h2>
+                    <h2 class="question-titre">As a true biologist, you want to explore what’s beneath the frosted crust. Who knows what you’ll find! You bet with your co-worker on what you think you will find.</h2>
                     
                     <div class="choix-container">
                         <div class="choix">
-                            <input type="radio" id="qse1" name="spaceship_europa" value="CERIUM:1,TELLURE:1" required>
-                            <label for="qse1">Document everything meticulously for science</label>
+                            <input type="radio" id="qse1" name="spaceship_europa" value="LANTHANE:1,CERIUM:1" required>
+                            <label for="qse1">Microbes that emit fluorescence when speak</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qse2" name="spaceship_europa" value="LANTHANE:1,DYSPROSIUM:1,GADOLINIUM:1,NEODYME:1" required>
-                            <label for="qse2">Try to communicate with the microbes</label>
+                            <input type="radio" id="qse2" name="spaceship_europa" value="DYSPROSIUM:1,TELLURE:1" required>
+                            <label for="qse2">Many different plants with appearances ranging from shark-like to snail-like</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qse3" name="spaceship_europa" value="CERIUM:1,TELLURE:1" required>
-                            <label for="qse3">Collect samples for further study</label>
+                            <input type="radio" id="qse3" name="spaceship_europa" value="CERIUM:1,GADOLINIUM:1" required>
+                            <label for="qse3">Jellyfish with bees stripes that eats sunlight and wear swimming glasses</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="qse4" name="spaceship_europa" value="GADOLINIUM:1,DYSPROSIUM:1,PRASEODYME:1" required>
-                            <label for="qse4">Feel emotional about this historic discovery</label>
+                            <input type="radio" id="qse4" name="spaceship_europa" value="NEODYME:1,PRASEODYME:1" required>
+                            <label for="qse4">Nothing truly living but wait… you discover that everything you live is part of the matrix </label>
                         </div>
                     </div>
                     
@@ -1532,11 +1532,11 @@
         <!-- REEVOLUTIONATE PROJECT MESSAGE -->
         <div id="reevolutionate-message" class="resultat-container">
             <div class="carte-resultat">
-                <h2>🎉 Congratulations! 🎉</h2>
+                <h2>🎉 You've escaped ! 🎉</h2>
                 <div class="resultat-contenu">
-                    <h3 style="color: #71aca2; margin-bottom: 20px;">**You've completed the quiz!**</h3>
+                    <h3 style="color: #71aca2; margin-bottom: 20px;">CONGRATS ! you did it! You're not trash anymore... what a REElief!</h3>
                     <p style="text-align: left; line-height: 1.6;">
-                        You've been officially **REEcycled**, thanks to your saviors: the brilliant students of Lausanne behind the **REEvolutionaTe** project.<br><br>
+                        You've been officially <strong>REEcycled</strong>, thanks to your saviors: the brilliant students of Lausanne behind the <strong>REEvolutionaTe</strong> project.<br><br>
                         They used bacteria to do all the dirty work so you could live on forever.<br>
                         Curious how they pulled that off? Go take a peek behind the scenes: <em>[Wiki link]</em><br><br>
                         You're welcome ;)
@@ -1552,9 +1552,16 @@
         <!-- RÉSULTAT -->
         <div id="resultat" class="resultat-container">
             <div class="carte-resultat">
-                <h2>Your result:</h2>
+                <h2>🎉 You escaped! 🎉</h2>
                 <div class="resultat-contenu">
-                    <h3 id="resultat-titre"></h3>
+                    <h3 style="color: #71aca2; margin-bottom: 20px;">CONGRATS ! you did it! You're not trash anymore... what a REElief!</h3>
+                    <p style="text-align: left; line-height: 1.4;">
+                        You've been officially REEcycled, thanks to your saviors: the brilliant students of Lausanne behind the <strong>REEvolutionaTe</strong> project.<br><br>
+                        They used bacteria to do all the dirty work so you could live on forever.<br>
+                        Curious how they pulled that off? Go take a peek behind the scenes: <em>[Wiki link]</em><br><br>
+                        You're welcome ;)
+                    </p>
+                    <h3 id="resultat-titre" style="margin-top: 25px;"></h3>
                     <p id="resultat-description"></p>
                     <div class="actions-resultat">
                         <button onclick="recommencer()" class="btn-recommencer">Redo the quiz</button>
@@ -1572,7 +1579,7 @@
                     <div id="exit-image-container" style="text-align: center; margin-bottom: 20px;"></div>
                     <h3 style="color: #71aca2; margin-bottom: 20px;">CONGRATS ! you did it! You're not trash anymore... what a REElief!</h3>
                     <p style="text-align: left; line-height: 1.4;">
-                        You've been officially REEcycled, thanks to your saviors: the brilliant students of Lausanne behind the **REEvolutionaTe** project.<br><br>
+                        You've been officially REEcycled, thanks to your saviors: the brilliant students of Lausanne behind the <strong>REEvolutionaTe</strong> project.<br><br>
                         They used bacteria to do all the dirty work so you could live on forever.<br>
                         Curious how they pulled that off? Go take a peek behind the scenes: <em>[Wiki link]</em><br><br>
                         You're welcome ;)
@@ -1677,6 +1684,17 @@
 
             // Navigation pour les questions du chemin Moon
             if (questionActuelle === 'spaceship-moon') {
+                const returnQuestion = document.querySelector('[data-question="spaceship-return"]');
+                if (returnQuestion) {
+                    returnQuestion.classList.add('active');
+                    questionActuelle = 'spaceship-return';
+                    mettreAJourProgress();
+                }
+                return;
+            }
+
+            // Navigation pour les questions du chemin Europa vers le retour
+            if (questionActuelle === 'spaceship-europa') {
                 const returnQuestion = document.querySelector('[data-question="spaceship-return"]');
                 if (returnQuestion) {
                     returnQuestion.classList.add('active');
@@ -2016,7 +2034,7 @@
             }
 
             // Navigation vers la carte finale pour tous les chemins
-            if (questionActuelle === 'spaceship-landing' || questionActuelle === 'spaceship-europa' || 
+            if (questionActuelle === 'spaceship-landing' || 
                 questionActuelle === 'death-cooking-class' || questionActuelle === 'death-cry-more' || 
                 questionActuelle === 'death-all-alone' || questionActuelle === 'death-beautiful' || 
                 questionActuelle === 'death-say-yes' || questionActuelle === 'apero-plasmid-correct') {
@@ -2068,11 +2086,22 @@
             }
 
             if (questionActuelle === 'spaceship-return') {
-                questionActuelle = 'spaceship-moon';
-                const moonQuestion = document.querySelector('[data-question="spaceship-moon"]');
-                if (moonQuestion) {
-                    moonQuestion.classList.add('active');
-                    mettreAJourProgress();
+                // Go back to either moon or europa based on the current path
+                if (currentPath === 'spaceship-europa') {
+                    questionActuelle = 'spaceship-europa';
+                    const europaQuestion = document.querySelector('[data-question="spaceship-europa"]');
+                    if (europaQuestion) {
+                        europaQuestion.classList.add('active');
+                        mettreAJourProgress();
+                    }
+                } else {
+                    // Default to moon path
+                    questionActuelle = 'spaceship-moon';
+                    const moonQuestion = document.querySelector('[data-question="spaceship-moon"]');
+                    if (moonQuestion) {
+                        moonQuestion.classList.add('active');
+                        mettreAJourProgress();
+                    }
                 }
                 return;
             }
@@ -2231,18 +2260,11 @@
             // Retour depuis la carte finale vers les dernières questions de chaque chemin
             if (questionActuelle === 'final-card') {
                 // Use the tracked path to go back to the correct question
-                if (currentPath === 'spaceship-moon') {
+                if (currentPath === 'spaceship-moon' || currentPath === 'spaceship-europa') {
                     questionActuelle = 'spaceship-landing';
                     const landingQuestion = document.querySelector('[data-question="spaceship-landing"]');
                     if (landingQuestion) {
                         landingQuestion.classList.add('active');
-                        mettreAJourProgress();
-                    }
-                } else if (currentPath === 'spaceship-europa') {
-                    questionActuelle = 'spaceship-europa';
-                    const europaQuestion = document.querySelector('[data-question="spaceship-europa"]');
-                    if (europaQuestion) {
-                        europaQuestion.classList.add('active');
                         mettreAJourProgress();
                     }
                 } else if (currentPath === 'death-crying-hugs') {
@@ -2515,7 +2537,7 @@
                     couleur: '#fda968'
                 },
                 'LANTHANE': {
-                    titre: 'The Tranquil Lanthanum 😴',
+                    titre: 'The Goofy Lanthanum 😴',
                     description: 'Like Lanthanum, you are very laid-back and the kindest! You\'re a bit slow but incredibly chill. You can sleep anywhere and give the best hugs. Hidden talent: you can burp the alphabet backwards!',
                     couleur: '#ac6b9d'
                 },
@@ -2624,45 +2646,8 @@
         }
 
         function continueToPersonalityQuiz() {
-            // Calculer le résultat basé sur les réponses données jusqu'à présent
-            const formData = new FormData(document.getElementById('quiz-form'));
-            const scores = {
-                'CERIUM': 0,
-                'DYSPROSIUM': 0,
-                'PRASEODYME': 0,
-                'LANTHANE': 0,
-                'GADOLINIUM': 0,
-                'NEODYME': 0,
-                'TELLURE': 0
-            };
-
-            // Compter les points des réponses données
-            for (let [name, value] of formData.entries()) {
-                // Ignorer les réponses spéciales
-                if (value === 'EXIT_ENDING' || value.includes('_PATH')) {
-                    continue;
-                }
-                
-                // Nouveau système de scoring
-                const entries = value.split(',');
-                
-                for (let entry of entries) {
-                    const [type, points] = entry.split(':');
-                    if (type && points && scores.hasOwnProperty(type)) {
-                        scores[type] += parseInt(points);
-                    }
-                }
-            }
-
-            // Trouver le type gagnant
-            let typeGagnant = 'CERIUM';
-            let scoreMax = 0;
-            for (let type in scores) {
-                if (scores[type] > scoreMax) {
-                    scoreMax = scores[type];
-                    typeGagnant = type;
-                }
-            }
+            // For the EXIT path, automatically assign DYSPROSIUM as the personality result
+            const typeGagnant = 'DYSPROSIUM';
 
             // Masquer la fin spéciale et afficher le résultat REE
             document.getElementById('exit-ending').style.display = 'none';
