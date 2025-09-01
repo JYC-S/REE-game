@@ -136,6 +136,21 @@
             margin-bottom: 5px;
         }
 
+        .character-preview-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 5px auto;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .type-preview:hover .character-preview-img {
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.05);
+        }
+
         /* === BOUTONS === */
         .btn-commencer, .btn-suivant, .btn-precedent, .btn-resultat, .btn-recommencer, .btn-partager {
             background: linear-gradient(135deg, var(--couleur-accent), var(--couleur-primaire));
@@ -434,37 +449,37 @@
             </header>
             
             <div class="carte-accueil">
-                <div class="icone-quiz">🧪</div>
+                <div class="icone-quiz"></div>
                 <h2>Ready to discover your inner element?</h2>
                 <p>This scientific quiz will help you find out which rare earth element matches your personality among:</p>
                 
                 <div class="types-personnalite">
                     <div class="type-preview cerium">
-                        <span class="emoji">🔍</span>
+                        <img src="Ce.jpg" alt="Cerium" class="character-preview-img">
                         <span>Cerium</span>
                     </div>
                     <div class="type-preview dysprosium">
-                        <span class="emoji">🏄‍♂️</span>
+                        <img src="Dy.jpg" alt="Dysprosium" class="character-preview-img">
                         <span>Dysprosium</span>
                     </div>
                     <div class="type-preview praseodyme">
-                        <span class="emoji">👑</span>
+                        <img src="Pr.jpg" alt="Praseodymium" class="character-preview-img">
                         <span>Praseodymium</span>
                     </div>
                     <div class="type-preview lanthane">
-                        <span class="emoji">😴</span>
+                        <img src="La.jpg" alt="Lanthanum" class="character-preview-img">
                         <span>Lanthanum</span>
                     </div>
                     <div class="type-preview gadolinium">
-                        <span class="emoji">✨</span>
+                        <img src="Ga.jpg" alt="Gadolinium" class="character-preview-img">
                         <span>Gadolinium</span>
                     </div>
                     <div class="type-preview neodyme">
-                        <span class="emoji">😎</span>
+                        <img src="Ne.jpg" alt="Neodymium" class="character-preview-img">
                         <span>Neodymium</span>
                     </div>
                     <div class="type-preview tellure">
-                        <span class="emoji">🐺</span>
+                        <img src="Te.jpg" alt="Tellurium" class="character-preview-img">
                         <span>Tellurium</span>
                     </div>
                 </div>
@@ -540,7 +555,7 @@
                             <label for="q2c3">This is the end. No hope but still time to have fun and do one last apero</label>
                         </div>
                         <div class="choix">
-                            <input type="radio" id="q2c4" name="question2" value="TELLURE:1,EXIT_ENDING" required>
+                            <input type="radio" id="q2c4" name="question2" value="DYSPROSIUM:30,EXIT_ENDING" required>
                             <label for="q2c4">You look to your right and see the exit sign</label>
                         </div>
                     </div>
@@ -1542,7 +1557,7 @@
                         You're welcome ;)
                     </p>
                     <div class="actions-resultat">
-                        <button onclick="showREEResult()" class="btn-partager">Click here to see which REE you are</button>
+                        <button onclick="showREEResult(getCharacterResult())" class="btn-partager">Click here to see which REE you are</button>
                         <button onclick="recommencer()" class="btn-recommencer">Restart the quiz</button>
                     </div>
                 </div>
@@ -1586,14 +1601,24 @@
                     </p>
                     <div class="actions-resultat">
                         <button onclick="recommencer()" class="btn-recommencer">Restart the adventure</button>
-                        <button onclick="continueToPersonalityQuiz()" class="btn-partager">Click here to see which REE you are</button>
+                        <button onclick="showREEResult(getCharacterResult())" class="btn-partager">Click here to see which REE you are</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
+        <!-- Character Image for REE result -->
+        <div id="pdf-container" class="resultat-container" style="display:none;">
+            <div class="carte-resultat">
+                <h2>🎉 Your REE Character! 🎉</h2>
+                <div class="resultat-contenu" style="text-align: center;">
+                    <img id="character-image" src="" alt="Your REE Character" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                    <br>
+                    <button onclick="recommencer()" class="btn-recommencer">Restart the quiz</button>
+                </div>
+            </div>
+        </div>    <script>
         // Variables globales
         let questionActuelle = 1;
         const totalQuestions = 5;
@@ -2579,14 +2604,18 @@
             creerConfettis();
         }
 
-        function showREEResult() {
-            // Hide the REEvolutionaTe message
+        function showREEResult(character) {
+            // Hide all result containers
             document.getElementById('reevolutionate-message').style.display = 'none';
+            document.getElementById('resultat').style.display = 'none';
+            document.getElementById('exit-ending').style.display = 'none';
             
-            // Show the actual REE result using the stored result
-            if (window.quizResult) {
-                afficherResultat(window.quizResult);
-            }
+            // Show the character image container
+            document.getElementById('pdf-container').style.display = 'block';
+            
+            // Set the image file based on the character (format: [Character].png)
+            var imageFile = character + '.png';
+            document.getElementById('character-image').src = imageFile;
         }
 
         function partager() {
@@ -2651,7 +2680,77 @@
 
             // Masquer la fin spéciale et afficher le résultat REE
             document.getElementById('exit-ending').style.display = 'none';
-            afficherResultat(typeGagnant);
+            
+            // Show the PDF directly for DYSPROSIUM
+            showREEResult('Dysprosium');
+        }
+
+        // Get the character result based on the quiz answers
+        function getCharacterResult() {
+            // If there's a stored quiz result, use it
+            if (window.quizResult) {
+                // Convert from uppercase to title case for image file names
+                const elementMap = {
+                    'CERIUM': 'Cerium',
+                    'DYSPROSIUM': 'Dysprosium',
+                    'PRASEODYME': 'Praseodyme',
+                    'LANTHANE': 'Lanthane',
+                    'GADOLINIUM': 'Gadolinium',
+                    'NEODYME': 'Neodyme',
+                    'TELLURE': 'Tellure'
+                };
+                return elementMap[window.quizResult] || 'Cerium';
+            }
+            
+            // Calculate result based on current answers
+            const scores = {
+                'CERIUM': 0,
+                'DYSPROSIUM': 0,
+                'PRASEODYME': 0,
+                'LANTHANE': 0,
+                'GADOLINIUM': 0,
+                'NEODYME': 0,
+                'TELLURE': 0
+            };
+
+            // Go through all selected answers and count scores
+            const selectedAnswers = document.querySelectorAll('input[type="radio"]:checked');
+            selectedAnswers.forEach(answer => {
+                const value = answer.value;
+                const parts = value.split(',');
+                parts.forEach(part => {
+                    if (part.includes(':')) {
+                        const [element, points] = part.split(':');
+                        if (scores.hasOwnProperty(element)) {
+                            scores[element] += parseInt(points);
+                        }
+                    }
+                });
+            });
+
+            // Find the element with the highest score
+            let maxScore = 0;
+            let winningElement = 'CERIUM'; // default
+            
+            for (const [element, score] of Object.entries(scores)) {
+                if (score > maxScore) {
+                    maxScore = score;
+                    winningElement = element;
+                }
+            }
+
+            // Convert to title case for image file names
+            const elementMap = {
+                'CERIUM': 'Cerium',
+                'DYSPROSIUM': 'Dysprosium',
+                'PRASEODYME': 'Praseodyme',
+                'LANTHANE': 'Lanthane',
+                'GADOLINIUM': 'Gadolinium',
+                'NEODYME': 'Neodyme',
+                'TELLURE': 'Tellure'
+            };
+
+            return elementMap[winningElement] || 'Cerium';
         }
 
         // Mettre à jour la fonction recommencer pour gérer aussi la fin spéciale
@@ -2678,6 +2777,7 @@
             document.getElementById('resultat').style.display = 'none';
             document.getElementById('reevolutionate-message').style.display = 'none';
             document.getElementById('exit-ending').style.display = 'none';
+            document.getElementById('pdf-container').style.display = 'none';
             document.getElementById('quiz').style.display = 'none';
             document.getElementById('accueil').style.display = 'block';
         }
