@@ -436,22 +436,44 @@
                 padding: 12px 25px;
                 font-size: 1em;
             }
+
+            .language-selector {
+                position: fixed !important;
+                top: 10px !important;
+                right: 10px !important;
+            }
+        }
+
+        /* === LANGUAGE SELECTOR === */
+        .lang-btn.active {
+            background: white !important;
+            color: var(--couleur-primaire) !important;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2) !important;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- LANGUAGE SELECTOR -->
+        <div class="language-selector" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+            <button onclick="switchLanguage('en')" id="btn-en" class="lang-btn active" style="margin-right: 10px; padding: 8px 15px; border: 2px solid white; background: transparent; color: white; border-radius: 20px; cursor: pointer; font-weight: bold; transition: all 0.3s;">EN</button>
+            <button onclick="switchLanguage('fr')" id="btn-fr" class="lang-btn" style="padding: 8px 15px; border: 2px solid white; background: transparent; color: white; border-radius: 20px; cursor: pointer; font-weight: bold; transition: all 0.3s;">FR</button>
+        </div>
+
         <!-- PAGE D'ACCUEIL -->
         <section id="accueil" class="accueil-section">
             <header class="hero">
-                <h1 class="titre-principal">✨ What Rare Earth Element (REE) are you? ✨</h1>
-                <p class="sous-titre">Discover your rare earth element personality by answering a few simple questions!</p>
+                <h1 class="titre-principal" data-lang-en="✨ What Rare Earth Element (REE) are you? ✨" data-lang-fr="✨ Quel Élément de Terre Rare (REE) êtes-vous ? ✨">✨ What Rare Earth Element (REE) are you? ✨</h1>
+                <p class="sous-titre" data-lang-en="Discover your rare earth element personality by answering a few simple questions!" data-lang-fr="Découvrez quel élément de terre rare correspond à votre personnalité en répondant à quelques questions simples !">Discover your rare earth element personality by answering a few simple questions!</p>
             </header>
             
             <div class="carte-accueil">
                 <div class="icone-quiz"></div>
-                <h2>Ready to discover your inner element?</h2>
-                <p>This scientific quiz will help you find out which rare earth element matches your personality among:</p>
+                <h2 data-lang-en="Ready to discover your inner element?" data-lang-fr="Prêt à découvrir votre élément intérieur ?">Ready to discover your inner element?</h2>
+                <p data-lang-en="This scientific quiz will help you find out which rare earth element matches your personality among:" data-lang-fr="Ce quiz scientifique vous aidera à découvrir quel élément de terre rare correspond à votre personnalité parmi :">This scientific quiz will help you find out which rare earth element matches your personality among:</p>
                 
                 <div class="types-personnalite">
                     <div class="type-preview cerium">
@@ -484,28 +506,28 @@
                     </div>
                 </div>
                 
-                <button class="btn-commencer" onclick="commencerQuiz()">Start the quiz</button>
+                <button class="btn-commencer" onclick="commencerQuiz()" data-lang-en="Start the quiz" data-lang-fr="Commencer le quiz">Start the quiz</button>
             </div>
             
             <footer>
-                <p>💡 No right or wrong answers - just be yourself!</p>
+                <p data-lang-en="💡 No right or wrong answers - just be yourself!" data-lang-fr="💡 Il n'y a ni bonnes ni mauvaises réponses - soyez simplement vous-même !">💡 No right or wrong answers - just be yourself!</p>
             </footer>
         </section>
 
         <!-- SECTION QUIZ -->
         <section id="quiz" class="quiz-section">
             <header class="quiz-header">
-                <h1>🧠 What Rare Earth Element (REE) are you ?</h1>
+                <h1 data-lang-en="🧠 What Rare Earth Element (REE) are you ?" data-lang-fr="🧠 Quel Élément de Terre Rare (REE) êtes-vous ?">🧠 What Rare Earth Element (REE) are you ?</h1>
                 <div class="progress-bar">
                     <div class="progress" id="progress"></div>
                 </div>
-                <span class="progress-text">Question <span id="question-actuelle">1</span></span>
+                <span class="progress-text" data-lang-en="Question <span id=\"question-actuelle\">1</span> of 6" data-lang-fr="Question <span id=\"question-actuelle\">1</span> sur 6">Question <span id="question-actuelle">1</span> of 6</span>
             </header>
 
             <form id="quiz-form">
                 <!-- Question 1 -->
                 <div class="question-card active" data-question="1">
-                    <h2 class="question-titre">Here you are, one Rare Earth Element (REE) out of many in e-waste. What a mess.... To escape from being killed because of your old age, you have to team up with your other REE friends. What is your first action?</h2>
+                    <h2 class="question-titre" data-translate="question1">Here you are, one Rare Earth Element (REE) out of many in e-waste. What a mess.... To escape from being killed because of your old age, you have to team up with your other REE friends. What is your first action?</h2>
 
                     <div class="question-image">
                         <img src="Q1 décharge.jpg" alt="E-waste with scattered electronic devices" />
@@ -514,19 +536,19 @@
                     <div class="choix-container">
                         <div class="choix">
                             <input type="radio" id="q1c1" name="question1" value="CERIUM:1,PRASEODYME:1,NEODYME:1" required>
-                            <label for="q1c1">You like to stay on top of the situation, and you take the lead.</label>
+                            <label for="q1c1" data-translate="q1-option1">You like to stay on top of the situation, and you take the lead.</label>
                         </div>
                         <div class="choix">
                             <input type="radio" id="q1c2" name="question1" value="LANTHANE:1,TELLURE:1,GADOLINIUM:1" required>
-                            <label for="q1c2">You've never been good at talking in public but you keep your beautiful smile on</label>
+                            <label for="q1c2" data-translate="q1-option2">You've never been good at talking in public but you keep your beautiful smile on</label>
                         </div>
                         <div class="choix">
                             <input type="radio" id="q1c3" name="question1" value="CERIUM:1,PRASEODYME:1" required>
-                            <label for="q1c3">You have something so smart to say that nobody understands and starts to sleep</label>
+                            <label for="q1c3" data-translate="q1-option3">You have something so smart to say that nobody understands and starts to sleep</label>
                         </div>
                         <div class="choix">
                             <input type="radio" id="q1c4" name="question1" value="DYSPROSIUM:1,LANTHANE:1" required>
-                            <label for="q1c4">You're just happy to be part of the team</label>
+                            <label for="q1c4" data-translate="q1-option4">You're just happy to be part of the team</label>
                         </div>
                     </div>
                     
@@ -539,24 +561,24 @@
 
                 <!-- Question 2 -->
                 <div class="question-card" data-question="2">
-                    <h2 class="question-titre">You came up with a plan to escape from this e-waste. What is it ?</h2>
+                    <h2 class="question-titre" data-translate="question2">You came up with a plan to escape from this e-waste. What is it ?</h2>
                     
                     <div class="choix-container">
                         <div class="choix">
                             <input type="radio" id="q2c1" name="question2" value="CERIUM:1,SPACESHIP_PATH" required>
-                            <label for="q2c1">While everybody was running around like headless chickens, you've managed to build a space ship and fly out</label>
+                            <label for="q2c1" data-translate="q2-option1">While everybody was running around like headless chickens, you've managed to build a space ship and fly out</label>
                         </div>
                         <div class="choix">
                             <input type="radio" id="q2c2" name="question2" value="NEODYME:1,LANTHANE:1,DEATH_NO_SCARE_PATH" required>
-                            <label for="q2c2">Death doesn't scare you. You know your time hasn't come and just go with the flow</label>
+                            <label for="q2c2" data-translate="q2-option2">Death doesn't scare you. You know your time hasn't come and just go with the flow</label>
                         </div>
                         <div class="choix">
                             <input type="radio" id="q2c3" name="question2" value="DYSPROSIUM:1,GADOLINIUM:1,PRASEODYME:1,APERO_PATH" required>
-                            <label for="q2c3">This is the end. No hope but still time to have fun and do one last apero</label>
+                            <label for="q2c3" data-translate="q2-option3">This is the end. No hope but still time to have fun and do one last apero</label>
                         </div>
                         <div class="choix">
                             <input type="radio" id="q2c4" name="question2" value="DYSPROSIUM:30,EXIT_ENDING" required>
-                            <label for="q2c4">You look to your right and see the exit sign</label>
+                            <label for="q2c4" data-translate="q2-option4">You look to your right and see the exit sign</label>
                         </div>
                     </div>
                     
@@ -1623,6 +1645,282 @@
         let questionActuelle = 1;
         const totalQuestions = 5;
         let currentPath = ''; // Track which path the user is on
+        let currentLanguage = 'en'; // Default language is English
+
+        // Complete translation object
+        const translations = {
+            en: {
+                // Home page
+                'title': '✨ What Rare Earth Element (REE) are you? ✨',
+                'subtitle': 'Discover your rare earth element personality by answering a few simple questions!',
+                'ready': 'Ready to discover your inner element?',
+                'quiz-description': 'This scientific quiz will help you find out which rare earth element matches your personality among:',
+                'start-quiz': 'Start the quiz',
+                'no-wrong-answers': '💡 No right or wrong answers - just be yourself!',
+                
+                // Quiz header
+                'quiz-title': '🧠 What Rare Earth Element (REE) are you ?',
+                'question-progress': 'Question {current} of 6',
+                
+                // Navigation buttons
+                'back': '← Back',
+                'continue': 'Continue →',
+                'next': 'Next →',
+                
+                // Questions
+                'question1': 'Here you are, one Rare Earth Element (REE) out of many in e-waste. What a mess.... To escape from being killed because of your old age, you have to team up with your other REE friends. What is your first action?',
+                'q1-option1': 'You like to stay on top of the situation, and you take the lead.',
+                'q1-option2': 'You\'ve never been good at talking in public but you keep your beautiful smile on',
+                'q1-option3': 'You have something so smart to say that nobody understands and starts to sleep',
+                'q1-option4': 'You\'re just happy to be part of the team',
+                
+                'question2': 'You came up with a plan to escape from this e-waste. What is it ?',
+                'q2-option1': 'While everybody was running around like headless chickens, you\'ve managed to build a space ship and fly out',
+                'q2-option2': 'Death doesn\'t scare you. You know your time hasn\'t come and just go with the flow',
+                'q2-option3': 'This is the end. No hope but still time to have fun and do one last apero',
+                'q2-option4': 'You look to your right and see the exit sign',
+                
+                // Results
+                'results-title': '🎉 You escaped! 🎉',
+                'congrats': 'CONGRATS ! you did it! You\'re not trash anymore... what a REElief!',
+                'reevolutionate-text': 'You\'ve been officially REEcycled, thanks to your saviors: the brilliant students of Lausanne behind the REEvolutionaTe project.<br><br>They used bacteria to do all the dirty work so you could live on forever.<br>Curious how they pulled that off? Go take a peek behind the scenes: [Wiki link]<br><br>You\'re welcome ;)',
+                'see-ree': 'Click here to see which REE you are',
+                'restart': 'Redo the quiz',
+                'share': 'Share my result',
+                'discover': 'Discover my result ! 🎉',
+                'restart-adventure': 'Restart the adventure',
+                
+                // Character descriptions
+                'cerium-title': 'The Exploratory Cerium 🔍',
+                'cerium-desc': 'Like Cerium, you are versatile and adaptable! You excel at discovering new applications and know how to adapt to different situations. Your natural curiosity drives you to explore new territories.',
+                
+                'dysprosium-title': 'The Dysfunctional Dysprosium 🏄‍♂️',
+                'dysprosium-desc': 'Like Dysprosium, you put the fun in dysfunctional! You\'re crazy, ruthless but brilliant. You know how to have fun even when your house is burning down. Hidden talent: you\'re incredible at crocheting!',
+                
+                'praseodyme-title': 'The Presidential Praseodymium 👑',
+                'praseodyme-desc': 'Like Praseodymium, you\'re the leader who organizes the best parties! You\'re photogenic, you give beautiful speeches, but you\'re authoritarian and have zero luck. Hidden talent: you know all Taylor Swift songs by heart!',
+                
+                'lanthane-title': 'The Goofy Lanthanum 😴',
+                'lanthane-desc': 'Like Lanthanum, you are very laid-back and the kindest! You\'re a bit slow but incredibly chill. You can sleep anywhere and give the best hugs. Hidden talent: you can burp the alphabet backwards!',
+                
+                'gadolinium-title': 'The Glamorous Gadolinium ✨',
+                'gadolinium-desc': 'Like Gadolinium, you have the perfect outfit for every situation! You\'re magnificent, extroverted and you write poetry. You\'re broke but a hopeless romantic. Hidden talent: you can drink through your nose!',
+                
+                'neodyme-title': 'The Conspiracy Theorist Neodymium 😎',
+                'neodyme-desc': 'Like Neodymium, you don\'t trust anything or anyone! You wear weird glasses, you always argue with Cerium and you think everything is a conspiracy. Hidden talent: you turn your shopping list into a manifesto!',
+                
+                'tellure-title': 'The Lone Wolf Tellurium 🐺',
+                'tellure-desc': 'Like Tellurium, you are unique and mysterious! You love alone time, you don\'t talk much except to say completely crazy things. You\'re a private detective and you wear a leather jacket. Pick-up line: "Want to see my shed?"'
+            },
+            fr: {
+                // Page d'accueil
+                'title': '✨ Quel Élément de Terre Rare (REE) êtes-vous ? ✨',
+                'subtitle': 'Découvrez quel élément de terre rare correspond à votre personnalité en répondant à quelques questions simples !',
+                'ready': 'Prêt à découvrir votre élément intérieur ?',
+                'quiz-description': 'Ce quiz scientifique vous aidera à découvrir quel élément de terre rare correspond à votre personnalité parmi :',
+                'start-quiz': 'Commencer le quiz',
+                'no-wrong-answers': '💡 Il n\'y a ni bonnes ni mauvaises réponses - soyez simplement vous-même !',
+                
+                // En-tête du quiz
+                'quiz-title': '🧠 Quel Élément de Terre Rare (REE) êtes-vous ?',
+                'question-progress': 'Question {current} sur 6',
+                
+                // Boutons de navigation
+                'back': '← Retour',
+                'continue': 'Continuer →',
+                'next': 'Suivant →',
+                
+                // Questions
+                'question1': 'Vous voici, un Élément de Terre Rare (REE)) parmi tant d\'autres dans des déchets électroniques. Quel bazar... Pour échapper à la mort due à votre âge avancé, vous devez faire équipe avec vos amis REE. Quelle est votre première action ?',
+                'q1-option1': 'Vous aimez rester au sommet de la situation et vous prenez les devants.',
+                'q1-option2': 'Vous n\'avez jamais été doué pour parler en public mais vous gardez votre beau sourire',
+                'q1-option3': 'Vous avez quelque chose de si intelligent à dire que personne ne comprend et commence à s\'endormir',
+                'q1-option4': 'Vous êtes juste heureux de faire partie de l\'équipe',
+                
+                'question2': 'Vous avez trouvé un plan pour échapper de ces déchets électroniques. Quel est-il ?',
+                'q2-option1': 'Pendant que tout le monde courait comme des poules sans tête, vous avez réussi à construire un vaisseau spatial et à vous envoler',
+                'q2-option2': 'La mort ne vous fait pas peur. Vous savez que votre heure n\'est pas venue et vous suivez le mouvement',
+                'q2-option3': 'C\'est la fin. Aucun espoir mais encore le temps de s\'amuser et de faire un dernier apéro',
+                'q2-option4': 'Vous regardez à droite et voyez le panneau de sortie',
+                
+                // Résultats
+                'results-title': '🎉 Vous avez échappé ! 🎉',
+                'congrats': 'FÉLICITATIONS ! vous l\'avez fait ! Vous n\'êtes plus un déchet... quel soulagement !',
+                'reevolutionate-text': 'Vous avez été officiellement REEcyclé, grâce à vos sauveurs : les brillants étudiants de Lausanne derrière le projet REEvolutionaTe.<br><br>Ils ont utilisé des bactéries pour faire tout le sale travail afin que vous puissiez vivre éternellement.<br>Curieux de savoir comment ils ont fait ? Allez jeter un coup d\'œil dans les coulisses : [Lien Wiki]<br><br>De rien ;)',
+                'see-ree': 'Cliquer ici pour voir quel REE vous êtes',
+                'restart': 'Refaire le quiz',
+                'share': 'Partager mon résultat',
+                'discover': 'Découvrir mon résultat ! 🎉',
+                'restart-adventure': 'Recommencer l\'aventure',
+                
+                // Descriptions des personnages
+                'cerium-title': 'Le Cérium Explorateur 🔍',
+                'cerium-desc': 'Comme le Cérium, vous êtes polyvalent et adaptable ! Vous excellez à découvrir de nouvelles applications et savez vous adapter à différentes situations. Votre curiosité naturelle vous pousse à explorer de nouveaux territoires.',
+                
+                'dysprosium-title': 'Le Dysprosium Dysfonctionnel 🏄‍♂️',
+                'dysprosium-desc': 'Comme le Dysprosium, vous mettez le plaisir dans dysfonctionnel ! Vous êtes fou, impitoyable mais brillant. Vous savez vous amuser même quand votre maison brûle. Talent caché : vous êtes incroyable au crochet !',
+                
+                'praseodyme-title': 'Le Praséodyme Présidentiel 👑',
+                'praseodyme-desc': 'Comme le Praséodyme, vous êtes le leader qui organise les meilleures fêtes ! Vous êtes photogénique, vous faites de beaux discours, mais vous êtes autoritaire et n\'avez aucune chance. Talent caché : vous connaissez toutes les chansons de Taylor Swift par cœur !',
+                
+                'lanthane-title': 'Le Lanthane Rigolo 😴',
+                'lanthane-desc': 'Comme le Lanthane, vous êtes très décontracté et le plus gentil ! Vous êtes un peu lent mais incroyablement cool. Vous pouvez dormir n\'importe où et faire les meilleurs câlins. Talent caché : vous pouvez roter l\'alphabet à l\'envers !',
+                
+                'gadolinium-title': 'Le Gadolinium Glamour ✨',
+                'gadolinium-desc': 'Comme le Gadolinium, vous avez la tenue parfaite pour chaque situation ! Vous êtes magnifique, extraverti et vous écrivez de la poésie. Vous êtes fauché mais romantique incurable. Talent caché : vous pouvez boire par le nez !',
+                
+                'neodyme-title': 'Le Néodyme Théoricien du Complot 😎',
+                'neodyme-desc': 'Comme le Néodyme, vous ne faites confiance à rien ni personne ! Vous portez des lunettes bizarres, vous vous disputez toujours avec Cérium et vous pensez que tout est un complot. Talent caché : vous transformez votre liste de courses en manifeste !',
+                
+                'tellure-title': 'Le Tellure Loup Solitaire 🐺',
+                'tellure-desc': 'Comme le Tellure, vous êtes unique et mystérieux ! Vous aimez être seul, vous ne parlez pas beaucoup sauf pour dire des choses complètement folles. Vous êtes détective privé et portez une veste en cuir. Phrase d\'approche : "Veux-tu voir ma cabane ?"'
+            }
+        };
+
+        // Language switching functionality
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('btn-' + lang).classList.add('active');
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+            
+            // Update all translated content
+            updateAllContent(lang);
+        }
+
+        function updateAllContent(lang) {
+            const t = translations[lang];
+            
+            // Update elements with data-translate attributes
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (t[key]) {
+                    if (key.includes('progress')) {
+                        // Handle progress text with placeholder
+                        const currentQ = document.getElementById('question-actuelle').textContent;
+                        element.innerHTML = t[key].replace('{current}', `<span id="question-actuelle">${currentQ}</span>`);
+                    } else {
+                        element.innerHTML = t[key];
+                    }
+                }
+            });
+            
+            // Update result pages content
+            updateResultPages(lang);
+            
+            // Update button texts
+            updateButtonTexts(lang);
+        }
+
+        function updateResultPages(lang) {
+            const t = translations[lang];
+            
+            // Update REEvolutionate message
+            const reevolutionateTitle = document.querySelector('#reevolutionate-message h2');
+            if (reevolutionateTitle) reevolutionateTitle.textContent = t['results-title'];
+            
+            const reevolutionateCongrats = document.querySelector('#reevolutionate-message h3');
+            if (reevolutionateCongrats) reevolutionateCongrats.textContent = t['congrats'];
+            
+            const reevolutionateText = document.querySelector('#reevolutionate-message p');
+            if (reevolutionateText) reevolutionateText.innerHTML = t['reevolutionate-text'];
+            
+            // Update main result page
+            const resultTitle = document.querySelector('#resultat h2');
+            if (resultTitle) resultTitle.textContent = t['results-title'];
+            
+            const resultCongrats = document.querySelector('#resultat h3');
+            if (resultCongrats) resultCongrats.textContent = t['congrats'];
+            
+            const resultText = document.querySelector('#resultat p');
+            if (resultText) resultText.innerHTML = t['reevolutionate-text'];
+            
+            // Update exit ending
+            const exitTitle = document.querySelector('#exit-ending h2');
+            if (exitTitle) exitTitle.textContent = t['results-title'];
+            
+            const exitCongrats = document.querySelector('#exit-ending h3');
+            if (exitCongrats) exitCongrats.textContent = t['congrats'];
+            
+            const exitText = document.querySelector('#exit-ending p');
+            if (exitText) exitText.innerHTML = t['reevolutionate-text'];
+        }
+
+        function updateButtonTexts(lang) {
+            const t = translations[lang];
+
+            // Update button texts
+            const backButtons = document.querySelectorAll('.btn-precedent');
+            backButtons.forEach(btn => btn.textContent = t['back']);
+            
+            const continueButtons = document.querySelectorAll('.btn-suivant');
+            continueButtons.forEach(btn => {
+                if (btn.textContent.includes('Next') || btn.textContent.includes('Suivant')) {
+                    btn.textContent = t['next'];
+                } else {
+                    btn.textContent = t['continue'];
+                }
+            });
+            
+            const restartButtons = document.querySelectorAll('.btn-recommencer');
+            restartButtons.forEach(btn => btn.textContent = t['restart']);
+            
+            const shareButtons = document.querySelectorAll('.btn-partager');
+            shareButtons.forEach(btn => {
+                if (btn.textContent.includes('Click here to see') || btn.textContent.includes('Cliquer ici')) {
+                    btn.textContent = t['see-ree'];
+                } else if (btn.textContent.includes('Restart') || btn.textContent.includes('Recommencer')) {
+                    btn.textContent = t['restart-adventure'];
+                } else {
+                    btn.textContent = t['share'];
+                }
+            });
+            
+            const discoverButtons = document.querySelectorAll('.btn-resultat');
+            discoverButtons.forEach(btn => btn.textContent = t['discover']);
+        }
+
+        // Initialize with data-translate attributes
+        function initializeTranslations() {
+            // Add data-translate attributes to elements that need translation
+            const elementsToTranslate = [
+                { selector: '.titre-principal', key: 'title' },
+                { selector: '.sous-titre', key: 'subtitle' },
+                { selector: '.carte-accueil h2', key: 'ready' },
+                { selector: '.carte-accueil p', key: 'quiz-description' },
+                { selector: '.btn-commencer', key: 'start-quiz' },
+                { selector: 'footer p', key: 'no-wrong-answers' },
+                { selector: '.quiz-header h1', key: 'quiz-title' },
+                { selector: '.progress-text', key: 'question-progress' }
+            ];
+
+            elementsToTranslate.forEach(item => {
+                const element = document.querySelector(item.selector);
+                if (element) {
+                    element.setAttribute('data-translate', item.key);
+                }
+            });
+
+            // Add data-translate attributes to PDF container
+            const pdfTitle = document.querySelector('#pdf-container h2');
+            if (pdfTitle) pdfTitle.setAttribute('data-translate', 'ree-character-title');
+
+            // Initialize missing translations for PDF container
+            translations.en['ree-character-title'] = '🎉 Your REE Character! 🎉';
+            translations.fr['ree-character-title'] = '🎉 Votre Personnage REE ! 🎉';
+        }
+
+        // Initialize translations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTranslations();
+            updateAllContent(currentLanguage);
+        });
 
         function commencerQuiz() {
             document.getElementById('accueil').style.display = 'none';
@@ -2545,40 +2843,41 @@
         }
 
         function afficherResultat(type) {
+            const t = translations[currentLanguage];
             const resultats = {
                 'CERIUM': {
-                    titre: 'The Exploratory Cerium 🔍',
-                    description: 'Like Cerium, you are versatile and adaptable! You excel at discovering new applications and know how to adapt to different situations. Your natural curiosity drives you to explore new territories.',
+                    titre: t['cerium-title'],
+                    description: t['cerium-desc'],
                     couleur: '#f96628'
                 },
                 'DYSPROSIUM': {
-                    titre: 'The Dysfunctional Dysprosium 🏄‍♂️',
-                    description: 'Like Dysprosium, you put the fun in dysfunctional! You\'re crazy, ruthless but brilliant. You know how to have fun even when your house is burning down. Hidden talent: you\'re incredible at crocheting!',
+                    titre: t['dysprosium-title'],
+                    description: t['dysprosium-desc'],
                     couleur: '#71aca2'
                 },
                 'PRASEODYME': {
-                    titre: 'The Presidential Praseodymium 👑',
-                    description: 'Like Praseodymium, you\'re the leader who organizes the best parties! You\'re photogenic, you give beautiful speeches, but you\'re authoritarian and have zero luck. Hidden talent: you know all Taylor Swift songs by heart!',
+                    titre: t['praseodyme-title'],
+                    description: t['praseodyme-desc'],
                     couleur: '#fda968'
                 },
                 'LANTHANE': {
-                    titre: 'The Goofy Lanthanum 😴',
-                    description: 'Like Lanthanum, you are very laid-back and the kindest! You\'re a bit slow but incredibly chill. You can sleep anywhere and give the best hugs. Hidden talent: you can burp the alphabet backwards!',
+                    titre: t['lanthane-title'],
+                    description: t['lanthane-desc'],
                     couleur: '#ac6b9d'
                 },
                 'GADOLINIUM': {
-                    titre: 'The Glamorous Gadolinium ✨',
-                    description: 'Like Gadolinium, you have the perfect outfit for every situation! You\'re magnificent, extroverted and you write poetry. You\'re broke but a hopeless romantic. Hidden talent: you can drink through your nose!',
+                    titre: t['gadolinium-title'],
+                    description: t['gadolinium-desc'],
                     couleur: '#8bc34a'
                 },
                 'NEODYME': {
-                    titre: 'The Conspiracy Theorist Neodymium 😎',
-                    description: 'Like Neodymium, you don\'t trust anything or anyone! You wear weird glasses, you always argue with Cerium and you think everything is a conspiracy. Hidden talent: you turn your shopping list into a manifesto!',
+                    titre: t['neodyme-title'],
+                    description: t['neodyme-desc'],
                     couleur: '#2196f3'
                 },
                 'TELLURE': {
-                    titre: 'The Lone Wolf Tellurium 🐺',
-                    description: 'Like Tellurium, you are unique and mysterious! You love alone time, you don\'t talk much except to say completely crazy things. You\'re a private detective and you wear a leather jacket. Pick-up line: "Want to see my shed?"',
+                    titre: t['tellure-title'],
+                    description: t['tellure-desc'],
                     couleur: '#ff5722'
                 }
             };
@@ -2613,8 +2912,13 @@
             // Show the character image container
             document.getElementById('pdf-container').style.display = 'block';
             
-            // Set the image file based on the character (format: [Character].png)
-            var imageFile = character + '.png';
+            // Set the image file based on the character and current language
+            var imageFile;
+            if (currentLanguage === 'fr') {
+                imageFile = character + '_FR.png';
+            } else {
+                imageFile = character + '.png';
+            }
             document.getElementById('character-image').src = imageFile;
         }
 
