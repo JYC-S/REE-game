@@ -1686,6 +1686,10 @@
                 'back': '← Back',
                 'continue': 'Continue →',
                 'next': 'Next →',
+                'restart': 'Restart',
+                'see-ree': 'Click here to see your REE',
+                'restart-adventure': 'Restart Adventure',
+                'discover': 'Discover',
                 
                 // Questions
                 'question1': 'Here you are, one Rare Earth Element (REE) out of many in electronical waste (e-waste). What a mess.... To escape from being killed because of your old age, you have to team up with your other REE friends. What is your first action?',
@@ -1882,6 +1886,11 @@
                 // Boutons de navigation
                 'back': '← Retour',
                 'next': 'Suivant →',
+                'continue': 'Continuer →',
+                'restart': 'Recommencer',
+                'see-ree': 'Cliquer ici pour voir votre REE',
+                'restart-adventure': 'Recommencer l\'aventure',
+                'discover': 'Découvrir',
                 
                 // Questions
                 'question1': 'Vous voici, un Élément de Terre Rare (REE)) parmi tant d\'autres dans des déchets électroniques. Quel bazar... Pour échapper à la mort due à votre âge avancé, vous devez faire équipe avec vos amis REE. Quelle est votre première action ?',
@@ -2147,10 +2156,14 @@
             
             const continueButtons = document.querySelectorAll('.btn-suivant');
             continueButtons.forEach(btn => {
-                if (btn.textContent.includes('Next') || btn.textContent.includes('Suivant')) {
+                const currentText = btn.textContent.trim();
+                if (currentText.includes('Next') || currentText.includes('Suivant') || currentText === '') {
                     btn.textContent = t['next'];
-                } else {
+                } else if (currentText.includes('Continue') || currentText.includes('Continuer')) {
                     btn.textContent = t['continue'];
+                } else {
+                    // Default to next if we can't determine the type
+                    btn.textContent = t['next'];
                 }
             });
             
